@@ -1,0 +1,155 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap');
+body {
+  font-family: 'Poppins';
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  margin: auto;
+}
+.menu-top{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  grid-gap: 50px;
+  height: 70px;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+.menu-titles{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  grid-gap: 30px;
+  margin-left: 122px;
+  cursor: pointer;
+}
+.menu-icons{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  grid-gap: 36px;
+  margin-right: 122px;
+  margin-left: 375px;
+  align-items: center;
+}
+.logo{
+  margin-left: 115px;
+  font-size: 48px;
+  font-weight: bolder;
+  justify-content: center;
+}
+.start-page{
+  position: relative;
+  text-align: left;
+  width: 100%;
+}
+.start-text{
+  position: absolute;
+  top: 12%;
+  top: 15%;
+  padding-left: 120px;
+}
+.start-head{
+  font-size: 72px;
+  font-weight: bold;
+  color: white;
+  width: 40%;
+}
+.start-desq{
+  font-size: 24px;
+  font-weight: normal;
+  color: white;
+  width: 60%;
+}
+.button-start{
+  display: flex;
+  flex-wrap: wrap;
+  text-align: center;
+  align-items: center;
+  cursor: pointer;
+  justify-content: center;
+  border-radius: 30px;
+  width: 180px;
+  height: 60px;
+  background-color: #fff;
+  color: black;
+  font-weight: bold;
+  font-size: 24px;
+  margin-top: 30px;
+  transition: 0.3s;
+}
+.button-start:hover{
+  width: 220px;
+  padding-right: 20px;
+}
+.start-books-recommend{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 100px;
+}
+.start-books-recommend-header{
+  font-size: 72px;
+  margin-top: 32px;
+}
+.books-recomend-items{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+  grid-gap: 36px;
+  margin-top: 60px;
+}
+.book-item{
+  background-color: gray;
+  width: 300px;
+  height: 370px;
+}
+.rounds-slider-container{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+  grid-gap: 32px;
+  margin: 42px;
+}
+.button-more{
+  display: flex;
+  flex-wrap: wrap;
+  text-align: center;
+  align-items: center;
+  cursor: pointer;
+  justify-content: center;
+  border-radius: 30px;
+  width: 180px;
+  height: 60px;
+  border-color: black;
+  border-width: 2px;
+  border-style: solid;
+  color: black;
+  font-weight: bold;
+  font-size: 24px;
+  transition: 0.3s;
+}
+.button-more:hover{
+  width: 220px;
+  background-color: black;
+  color: white;
+}
+.round-slider{
+  width: 14px;
+  height: 14px;
+  border-width: 2px;
+  border-color: black;
+  border-radius: 50%;
+  border-style: solid;
+  transition: 0.3s;
+  cursor: pointer;
+}
+.round-slider:hover{
+  background-color: black;
+}
