@@ -2,7 +2,7 @@ const Router = require('express');
 const router = new Router();
 const controller = require('./authController');
 
-router.get('/auth', controller.registration);
-router.get('/login', controller.login);
+router.post('/api/v1/users/auth', controller.registration);
+router.get('/api/v1/users/login', controller.login);
 
 module.exports = router;
