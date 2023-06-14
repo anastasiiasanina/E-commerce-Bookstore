@@ -1,6 +1,6 @@
 const bcrypt = require('bcryptjs');
 const sqlite = require('sqlite3').verbose()
-const db = new sqlite.Database('../db/users.db', sqlite.OPEN_READWRITE, (err) => {
+const db = new sqlite.Database('./db/users.db', sqlite.OPEN_READWRITE, (err) => {
   if(err) console.log(err)
 })
 let sql;
@@ -11,7 +11,7 @@ const registration = (req, res) => {
     sql = "INSERT INTO users(username, password) VALUES (?,?)"
     db.run(sql, [username, password], (err) => {
       if(err) res.status(300).json({ message: 'Error found' });
-      console.log('succes: ', username, password)
+      console.log('success: ', username, password)
     });
 
     res.status(201).json("Created");
