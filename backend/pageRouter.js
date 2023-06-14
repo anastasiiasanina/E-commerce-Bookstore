@@ -3,5 +3,6 @@ const router = new Router();
 const controller = require('./pageController');
 
 router.get('/home', controller.getHomePage);
+router.get('/catalog', controller.getCatalogPage);
 
 module.exports = router;
