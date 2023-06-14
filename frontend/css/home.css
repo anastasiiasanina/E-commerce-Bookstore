@@ -11,7 +11,7 @@ body {
   flex-wrap: wrap;
   flex-direction: row;
   grid-gap: 50px;
-  height: 70px;
+  height: 80px;
   justify-content: center;
   align-items: center;
   width: 100%;
@@ -21,7 +21,7 @@ body {
   flex-wrap: wrap;
   flex-direction: row;
   grid-gap: 30px;
-  margin-left: 122px;
+  margin-left: 60px;
   cursor: pointer;
 }
 .menu-title {
@@ -36,15 +36,26 @@ body {
   flex-wrap: wrap;
   flex-direction: row;
   grid-gap: 36px;
-  margin-right: 122px;
-  margin-left: 375px;
+  margin-right: 60px;
+  margin-left: 60px;
   align-items: center;
+}
+.menu-icon:hover {
+  color: rgb(199, 24, 73);
 }
 .logo{
   margin-left: 115px;
   font-size: 48px;
   font-weight: bolder;
   justify-content: center;
+}
+#searchbar{
+	width: 200px;
+	margin: auto;
+	text-align:center;
+  border-radius: 5px;
+  border-color:rgb(90, 89, 89);
+  padding: 5px 1px 5px 1px;
 }
 .photo-banner{
   position: relative;
@@ -74,6 +85,7 @@ body {
   display: flex;
   flex-wrap: wrap;
   text-align: center;
+  text-decoration: none;
   align-items: center;
   cursor: pointer;
   justify-content: center;
@@ -89,7 +101,6 @@ body {
 }
 .button-start:hover{
   width: 220px;
-  padding-right: 20px;
 }
 .start-books-recommend{
   display: flex;
@@ -104,7 +115,7 @@ body {
   font-size: 72px;
   margin-top: 32px;
 }
-.books-recomend-items{
+.books-recommend-items{
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
@@ -129,6 +140,7 @@ body {
   display: flex;
   flex-wrap: wrap;
   text-align: center;
+  text-decoration: none;
   align-items: center;
   cursor: pointer;
   justify-content: center;

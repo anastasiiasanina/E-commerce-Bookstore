@@ -12,18 +12,18 @@
   <body>
     <div class="menu-top">
       <div class="menu-titles">
-        <div class="menu-title">Home</div>
-        <div class="menu-title">Catalog</a>
-        <div class="menu-title">Delivery</div>
-        <div class="menu-title">Contacts</div>
+        <a href="/home" class="menu-title">Home</a>
+        <a href="/catalog" class="menu-title">Catalog</a>
+        <a href="/home" class="menu-title">Delivery</a>
+        <a href="/home" class="menu-title">Contacts</a>
       </div>
       <div class="logo">I&#10084;BOOKS</div>
       <div class="menu-icons">
-        <i class="gg-search"></i>
-        <i class="gg-profile"></i>
-        <i class="gg-shopping-bag"></i>
+        <input id='searchbar' class="form-control" placeholder="Search books here..." type="text"></input>
+        <i class="menu-icon gg-search"></i>
+        <i class="menu-icon gg-profile"></i>
+        <i class="menu-icon gg-shopping-bag"></i>
       </div>
-
     </div>
     <div class="banner">
       <img src="../img/books-banner2.jpg" class="photo-banner">
@@ -34,12 +34,12 @@
         <div class="start-desq">
           Not sure what to read next? Explore our catalog.
         </div>
-        <div class="button-start">Explore now</div>
+        <a class="button-start" href="/catalog">Explore now</a>
       </div>
     </div>
     <div class="start-books-recommend">
       <div class="start-books-recommend-header">Trending books</div>
-      <div class="books-recomend-items">
+      <div class="books-recommend-items">
         <div class="book-item"></div>
         <div class="book-item"></div>
         <div class="book-item"></div>
@@ -50,7 +50,7 @@
         <div class="round-slider"></div>
         <div class="round-slider"></div>
       </div>
-      <div class="button-more">Explore more</div>
+      <a class="button-more" href="/catalog">See more</a>
     </div>
   </body>
   <script src="../js/home-page.js"></script>
