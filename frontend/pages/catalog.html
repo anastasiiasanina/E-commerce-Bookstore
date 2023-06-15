@@ -1,85 +1,94 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>Catalog</title>
-    <link rel="stylesheet" href='/css/home.css'>
-    <link rel="stylesheet" href='/css/catalog.css'>
-    <link rel="icon" href="https://img.icons8.com/ios-filled/50/love-circled.png"" />
+
+<head>
+  <meta charset="utf-8">
+  <title>Catalog</title>
+  <link rel="stylesheet" href='/css/home.css'>
+  <link rel="stylesheet" href='/css/catalog.css'>
+  <link rel="icon" href="https://img.icons8.com/ios-filled/50/love-circled.png"" />
     <link href='https://unpkg.com/css.gg@2.0.0/icons/css/search.css' rel='stylesheet'>
     <link href='https://unpkg.com/css.gg@2.0.0/icons/css/profile.css' rel='stylesheet'>
     <link href='https://unpkg.com/css.gg@2.0.0/icons/css/shopping-bag.css' rel='stylesheet'>
   </head>
   <body>
-    <div class="menu-top">
-      <div class="menu-titles">
-        <a href="/home" class="menu-title">Home</a>
-        <a href="/catalog" class="menu-title">Catalog</a>
-        <a href="/home" class="menu-title">Delivery</a>
-        <a href="/home" class="menu-title">Contacts</a>
+    <div class=" menu-top">
+  <div class="menu-titles">
+    <a href="/home" class="menu-title">Home</a>
+    <a href="/catalog" class="menu-title">Catalog</a>
+    <a href="/home" class="menu-title">Delivery</a>
+    <a href="/home" class="menu-title">Contacts</a>
+  </div>
+  <div class="logo">I&#10084;BOOKS</div>
+  <div class="menu-icons">
+    <input id='searchbar' class="form-control" placeholder="Search books here..." type="text" data-search></input>
+    <i class="menu-icon gg-search"></i>
+    <i class="menu-icon gg-profile"></i>
+    <i class="menu-icon gg-shopping-bag"></i>
+  </div>
+  </div>
+  <div class="categories">
+    <h3 class="categories-title">Categories of books</h3>
+    <div class="categories-text">
+      <div class="title">Fiction and Fantasy</div>
+      <div class="title">Modern Prose</div>
+      <div class="title">Classical Prose</div>
+      <div class="title">Psychology</div>
+      <div class="title">Self Development</div>
+      <div class="title">Reader's Choice</div>
+    </div>
+    <div class="line"></div>
+    <h3 class="categories-title">Authors</h3>
+    <ul class="authors-list">
+      <li class="author">someone</li>
+      <li class="author">someone</li>
+      <li class="author">someone</li>
+      <li class="author">someone</li>
+      <li class="author">someone</li>
+      <li class="author">someone</li>
+      <li class="author">someone</li>
+      <li class="author">someone</li>
+      <li class="author">someone</li>
+      <li class="author">someone</li>
+      <li class="author">someone</li>
+      <li class="author">someone</li>
+      <li class="author">someone</li>
+      <li class="author">someone</li>
+      <li class="author">someone</li>
+      <li class="author">someone</li>
+      <li class="author">someone</li>
+      <li class="author">someone</li>
+    </ul>
+    <div class="line"></div>
+    <h3 class="categories-title">Price</h3>
+    <div class="price-input">
+      <div class="field">
+        <span class="m-title">Min</span>
+        <input type="number" class="input-min" value="500">
       </div>
-      <div class="logo">I&#10084;BOOKS</div>
-      <div class="menu-icons">
-        <input id='searchbar' class="form-control" placeholder="Search books here..." type="text"></input>
-        <i class="menu-icon gg-search"></i>
-        <i class="menu-icon gg-profile"></i>
-        <i class="menu-icon gg-shopping-bag"></i>
+      <div class="separator">-</div>
+      <div class="field">
+        <span class="m-title">Max</span>
+        <input type="number" class="input-max" value="800">
       </div>
     </div>
-    <div class="categories">
-      <h3 class="categories-title">Categories of books</h3>
-      <div class="categories-text">
-        <div class="title">Fiction and Fantasy</div>
-        <div class="title">Modern Prose</div>
-        <div class="title">Classical Prose</div>
-        <div class="title">Psychology</div>
-        <div class="title">Self Development</div>
-        <div class="title">Reader's Choice</div>
-      </div>
-      <div class="line"></div>
-      <h3 class="categories-title">Authors</h3>
-      <ul class="authors-list">
-        <li class="author">someone</li>
-        <li class="author">someone</li>
-        <li class="author">someone</li>
-        <li class="author">someone</li>
-        <li class="author">someone</li>
-        <li class="author">someone</li>
-        <li class="author">someone</li>
-        <li class="author">someone</li>
-        <li class="author">someone</li>
-        <li class="author">someone</li>
-        <li class="author">someone</li>
-        <li class="author">someone</li>
-        <li class="author">someone</li>
-        <li class="author">someone</li>
-        <li class="author">someone</li>
-        <li class="author">someone</li>
-        <li class="author">someone</li>
-        <li class="author">someone</li>
-      </ul>
-      <div class="line"></div>
-      <h3 class="categories-title">Price</h3>
-      <div class="price-input">
-        <div class="field">
-          <span class="m-title">Min</span>
-          <input type="number" class="input-min" value="500">
-        </div>
-        <div class="separator">-</div>
-        <div class="field">
-          <span class="m-title">Max</span>
-          <input type="number" class="input-max" value="800">
-        </div>
-      </div>
-      <div class="slider">
-        <div class="progress"></div>
-      </div>
-      <div class="range-input">
-        <input type="range" class="range-min" min="100" max="1500" value="500" step="10">
-        <input type="range" class="range-max" min="100" max="1500" value="800" step="10">
-      </div>
-      <div class="find-btn">Find books</div>
+    <div class="slider">
+      <div class="progress"></div>
     </div>
+    <div class="range-input">
+      <input type="range" class="range-min" min="100" max="1500" value="500" step="10">
+      <input type="range" class="range-max" min="100" max="1500" value="800" step="10">
+    </div>
+    <div class="find-btn">Find books</div>
+  </div>
+  <div class="books_list" data-books-list-container></div>
+  <template books-list-template>
+    <div class="card">
+      <div class="header-name-book" data-name-book></div>
+      <div class="header-price-book" data-price-book></div>
+    </div>
+  </template>
   </body>
   <script src="../js/catalog-page.js"></script>
+
 </html>
