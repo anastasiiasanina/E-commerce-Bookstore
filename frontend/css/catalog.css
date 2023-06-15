@@ -51,7 +51,12 @@
     padding: 5px 1px 5px 1px;
 }
 
-.title:hover, .author:hover {
+.author:hover {
+    font-weight: bolder;
+    color: rgb(199, 24, 73);
+}
+
+.active {
     font-weight: bolder;
     color: rgb(199, 24, 73);
 }
@@ -169,4 +174,9 @@
 
 .find-btn:hover {
     background-color: rgb(95, 93, 93);
+}
+
+.main-title {
+    padding-left: 60px;
+    color: black;
 }
