@@ -170,3 +170,27 @@
 .find-btn:hover {
     background-color: rgb(95, 93, 93);
 }
+.books_list{
+    /* display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); */
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    gap: .25rem;
+    margin-top: 1rem;
+}
+.card{
+    border: 1px solid black;
+    background-color: antiquewhite;
+    padding: .5rem;
+}
+.card > .header{
+    margin-bottom: .25rem;
+}
+.card > .body{
+    font-size: .8rem;
+    color: #777;
+}
+.hide{
+    display: none;
+}
