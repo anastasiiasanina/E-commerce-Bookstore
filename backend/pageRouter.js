@@ -4,5 +4,6 @@ const controller = require('./pageController');
 
 router.get('/home', controller.getHomePage);
 router.get('/catalog', controller.getCatalogPage);
+router.get('/search', controller.getSearchPage);
 
 module.exports = router;

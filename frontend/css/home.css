@@ -237,20 +237,10 @@ ul li a:hover {
   text-decoration: underline;
 }
 
-.social-media {
-  display: flex;
-  justify-content: center;
-  margin-top: 10px;
-}
-
-.social-media li {
-  margin-right: 10px;
-}
-
-.social-media li a {
-  color: #333;
-}
-
 .footer-bottom {
   margin-top: 20px;
+}
+
+.error {
+  background-color: rgb(238, 218, 218);
 }

@@ -7,6 +7,10 @@ const range = document.querySelector('.slider .progress');
 const titlesOfGenres = document.getElementsByClassName('title');
 const titlesOfAuthors = document.getElementsByClassName('author');
 
+//search engine
+const inputField = document.querySelector('#searchbar');
+const searchButton = document.querySelector('#search');
+
 //button 'find books'
 const filterBtn = document.querySelector('.find-btn');
 
@@ -71,32 +75,16 @@ for (const input of rangeInput) {
 
 filterBtn.addEventListener('click', getFilters)
 
+const handleSearchClick = (e) => {
+    const input = inputField.value;
+    if (input == '') {
+       inputField.classList.add('error');
+    } else {
+        inputField.classList.remove('error');
+        inputField.value = '';
+        const searchURL = '/search?query=' + encodeURIComponent(input);
+        window.open(searchURL, '_blank');
+    }
+}
 
-//searching books
-const bookListTemplate = document.querySelector("[books-list-template]");
-const bookListContainer = document.querySelector("[data-books-list-container]");
-const searchInput = document.querySelector("[data-search]");
-let bookNames = [];
-
-searchInput.addEventListener("input", (event) => {
-  const value = event.target.value.toLowerCase();
-  bookNames.map((bookName) => {
-    let formatBooksName = bookName.name.toLowerCase();
-    const isVisible = formatBooksName.includes(value);
-    bookName.element.classList.toggle("hide", !isVisible);
-  });
-});
-
-fetch("https://jsonplaceholder.typicode.com/users")
-  .then((res) => res.json())
-  .then((data) => {
-    bookNames = data.map((bookName) => {
-      const card = bookListTemplate.content.cloneNode(true).children[0];
-      const bookNameHeader = card.querySelector("[data-name-book]");
-      const bookPrice = card.querySelector("[data-price-book]");
-      bookNameHeader.textContent = bookName.name;
-      bookPrice.textContent = bookName.id;
-      bookListContainer.append(card);
-      return { name: bookName.name, id: bookName.id, element: card };
-    });
-  });
+searchButton.addEventListener('click', handleSearchClick);
