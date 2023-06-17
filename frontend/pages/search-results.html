@@ -5,6 +5,7 @@
     <title>Catalog</title>
     <link rel="stylesheet" href='/css/home.css'>
     <link rel="stylesheet" href='/css/catalog.css'>
+    <link rel="stylesheet" href='/css/search.css'>
     <link rel="icon" href="https://img.icons8.com/ios-filled/50/love-circled.png"" />
     <link href='https://unpkg.com/css.gg@2.0.0/icons/css/search.css' rel='stylesheet'>
     <link href='https://unpkg.com/css.gg@2.0.0/icons/css/profile.css' rel='stylesheet'>
@@ -20,62 +21,21 @@
       </div>
       <div class="logo">I&#10084;BOOKS</div>
       <div class="menu-icons">
-        <input id="searchbar" class="form-control" placeholder="Search books here..." type="text" data-search></input>
+        <input id="searchbar" class="form-control" placeholder="Search books here..." type="text"></input>
         <i id="search" class="menu-icon gg-search"></i>
         <i class="menu-icon gg-profile"></i>
         <i class="menu-icon gg-shopping-bag"></i>
       </div>
     </div>
-    <div class="categories">
-      <h3 class="categories-title">Categories of books</h3>
-      <div class="categories-text">
-        <div class="title">Fiction and Fantasy</div>
-        <div class="title">Modern Prose</div>
-        <div class="title">Classical Prose</div>
-        <div class="title">Psychology</div>
-        <div class="title">Self Development</div>
-        <div class="title">Reader's Choice</div>
+    <div class="title-res">Search results for "<span id="input"></span>"</div>
+    <div class="books_list" data-books-list-container></div>
+    <template books-list-template>
+      <div class="card">
+        <div class="header-name-book" data-name-book></div>
+        <div class="header-name-book" data-author-book></div>
+        <div class="header-price-book" data-price-book></div>
       </div>
-      <div class="line"></div>
-      <h3 class="categories-title">Authors</h3>
-      <ul class="authors-list">
-        <li class="author">someone1</li>
-        <li class="author">someone2</li>
-        <li class="author">someone3</li>
-        <li class="author">someone4</li>
-        <li class="author">someone5</li>
-        <li class="author">someone6</li>
-        <li class="author">someone7</li>
-        <li class="author">someone8</li>
-        <li class="author">someone9</li>
-        <li class="author">someone10</li>
-      </ul>
-      <div class="line"></div>
-      <h3 class="categories-title">Price</h3>
-      <div class="price-input">
-        <div class="field">
-          <span class="m-title">Min</span>
-          <input type="number" class="input-min" value="500">
-        </div>
-        <div class="separator">-</div>
-        <div class="field">
-          <span class="m-title">Max</span>
-          <input type="number" class="input-max" value="800">
-        </div>
-      </div>
-      <div class="slider">
-        <div class="progress"></div>
-      </div>
-      <div class="range-input">
-        <input type="range" class="range-min" min="100" max="1500" value="500" step="10">
-        <input type="range" class="range-max" min="100" max="1500" value="800" step="10">
-      </div>
-      <div class="find-btn">Find books</div>
-    </div>
-    <div class="books-section">
-      <h3 class="books-header">All books</h3>
-      <h3 id="res"></h3>
-    </div>
+    </template>
     <div class="sep-footer"></div>
     <footer>
       <div class="footer-content">
@@ -103,7 +63,6 @@
       </div>
     </footer>
   </body>
-  
-  <script src="../js/catalog-page.js"></script>
+  <script src="../js/search-page.js"></script>
 </html>
 

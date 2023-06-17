@@ -16,7 +16,16 @@ const getCatalogPage = (req, res) => {
   }
 }
 
+const getSearchPage = (req, res) => {
+  try {
+    res.sendFile(path.join(__dirname, '../frontend/pages/search-results.html'));
+  } catch (error) {
+    res.status(404).json({ message: 'Not found' });
+  }
+}
+
 module.exports = {
   getHomePage,
-  getCatalogPage
+  getCatalogPage,
+  getSearchPage
 }
