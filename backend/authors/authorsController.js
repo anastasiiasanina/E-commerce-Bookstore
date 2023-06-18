@@ -27,6 +27,20 @@ const getAuthor = (req, res) => {
   }
 }
 
+const getAllAuthors = (req, res) => {
+  try {
+    sql = "SELECT * FROM authors"
+    db.all(sql, [], (err, rows) => {
+      if(err) res.status(300).json({ message: 'Error found' });
+      if(rows.length < 1) res.status(300).json({ message: 'No match' });
+
+      res.status(200).json(rows);
+    })
+  } catch (error) {
+    res.status(400).json({ message: 'Error found' });
+  }
+}
+
 const deleteAuthor = (req, res) => {
   try {
     
@@ -38,5 +52,6 @@ const deleteAuthor = (req, res) => {
 module.exports = {
   addAuthor,
   getAuthor,
-  deleteAuthor
+  deleteAuthor,
+  getAllAuthors
 }

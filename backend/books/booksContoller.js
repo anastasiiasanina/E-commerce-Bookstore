@@ -19,6 +19,20 @@ const addBook = (req, res) => {
   }
 }
 
+const getAllBooks = (req, res) => {
+  try {
+    sql = "SELECT * FROM books"
+    db.all(sql, [], (err, rows) => {
+      if(err) res.status(300).json({ message: 'Error found' });
+      if(rows.length < 1) res.status(300).json({ message: 'No match' });
+
+      res.status(200).json(rows);
+    })
+  } catch (error) {
+    res.status(400).json({ message: 'Error found' });
+  }
+}
+
 const getBook = (req, res) => {
   try {
     
@@ -38,5 +52,6 @@ const deleteBook = (req, res) => {
 module.exports = {
   addBook,
   getBook,
-  deleteBook
+  deleteBook,
+  getAllBooks
 }
