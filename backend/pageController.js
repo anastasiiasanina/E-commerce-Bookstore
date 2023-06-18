@@ -1,4 +1,10 @@
+'use strict';
+
 const path = require('path');
+
+const redirectToHomePage = (req, res) => {
+  res.redirect('/home');
+};
 
 const getHomePage = (req, res) => {
   try {
@@ -6,7 +12,7 @@ const getHomePage = (req, res) => {
   } catch (error) {
     res.status(404).json({ message: 'Not found' });
   }
-}
+};
 
 const getCatalogPage = (req, res) => {
   try {
@@ -14,7 +20,7 @@ const getCatalogPage = (req, res) => {
   } catch (error) {
     res.status(404).json({ message: 'Not found' });
   }
-}
+};
 
 const getSearchPage = (req, res) => {
   try {
@@ -22,10 +28,11 @@ const getSearchPage = (req, res) => {
   } catch (error) {
     res.status(404).json({ message: 'Not found' });
   }
-}
+};
 
 module.exports = {
+  redirectToHomePage,
   getHomePage,
   getCatalogPage,
   getSearchPage
-}
+};
