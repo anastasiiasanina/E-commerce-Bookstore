@@ -1,5 +1,9 @@
 const path = require('path');
 
+const redirectToHomePage = (req, res) => {
+  res.redirect('/home');
+};
+
 const getHomePage = (req, res) => {
   try {
     res.sendFile(path.join(__dirname, '../frontend/pages/home.html'));
@@ -25,7 +29,8 @@ const getSearchPage = (req, res) => {
 }
 
 module.exports = {
+  redirectToHomePage,
   getHomePage,
   getCatalogPage,
   getSearchPage
-}
+};
