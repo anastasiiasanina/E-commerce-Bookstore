@@ -39,7 +39,12 @@ const getAllBooks = (req, res) => {
 
 const getBook = (req, res) => {
   try {
+    const sql = 'SELECT * ' + 'FROM books ' + `WHERE id = ${req.params.id}`;
     
+    db.each(sql, [], (err, row) => {
+      if(err) res.status(300).json({ message: 'Error found' });
+      res.status(200).json(row);
+    });
   } catch (error) {
     res.status(400).json({ message: 'Error found' });
   }
@@ -47,7 +52,12 @@ const getBook = (req, res) => {
 
 const deleteBook = (req, res) => {
   try {
-    
+    const sql = 'DELETE * ' + 'FROM books ' + `WHERE id = ${req.params.id}`;
+
+    db.each(sql, [], (err, row) => {
+      if(err) res.status(300).json({ message: 'Error found' });
+      res.status(200).json(row);
+    });
   } catch (error) {
     res.status(400).json({ message: 'Error found' });
   }
