@@ -110,8 +110,19 @@ inputField.onkeyup = function () {
   displayDropBox(db);
 };
 function displayDropBox(db) {
-  const content = db.map((list) => {
-    return "<li>" + list + "</li>";
+  const ulElem = document.createElement("ul");
+  db.forEach((list) => {
+    let liElem = document.createElement("li");
+    liElem.textContent = list;
+    liElem.addEventListener("click", () => {
+      inputField.value = liElem.textContent;
+    });
+    ulElem.appendChild(liElem);
   });
-  resultBox.innerHTML = "<ul>" + content.join("") + "</ul>";
+
+  resultBox.innerHTML = "";
+  resultBox.appendChild(ulElem);
+}
+function selectInput(list) {
+  inputField.value = list.innerHTML;
 }
