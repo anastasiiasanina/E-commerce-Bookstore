@@ -30,9 +30,29 @@ const getSearchPage = (req, res) => {
   }
 };
 
+const getSignUpPage = (req, res) => {
+  try {
+    res.sendFile(path.join(__dirname, '../frontend/pages/signup.html'));
+
+  } catch (error) {
+    res.status(404).json({ message: 'Not found' });
+  }
+};
+
+const getSignInPage = (req, res) => {
+  try {
+    res.sendFile(path.join(__dirname, '../frontend/pages/signin.html'));
+
+  } catch (error) {
+    res.status(404).json({ message: 'Not found' });
+  }
+};
+
 module.exports = {
   redirectToHomePage,
   getHomePage,
+  getSignUpPage,
+  getSignInPage,
   getCatalogPage,
   getSearchPage
 };
