@@ -10,11 +10,11 @@ let sql;
 
 const addBook = (req, res) => {
   try {
-    const {name, price, description, genre, author} = req.body;
-    sql = "INSERT INTO books(name, price, description, genre, author) VALUES (?,?,?,?,?)"
-    db.run(sql, [name, price, description, genre, author], (err) => {
+    const {name, price, description, genre, author, amount} = req.body;
+    sql = "INSERT INTO books(name, price, description, genre, author, amount) VALUES (?,?,?,?,?,?)"
+    db.run(sql, [name, price, description, genre, author, amount], (err) => {
       if(err) res.status(300).json({ message: 'Error found' });
-      console.log('success: ', name, price, description, genre, author)
+      console.log('success: ', name, price, description, genre, author, amount)
     });
 
     res.status(201).json("Created");
