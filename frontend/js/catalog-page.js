@@ -11,8 +11,9 @@ const titlesOfAuthors = document.getElementsByClassName('author');
 const inputField = document.querySelector('#searchbar');
 const searchButton = document.querySelector('#search');
 
-//button 'find books'
+//buttons and labels for finding books
 const filterBtn = document.querySelector('.find-btn');
+const mainTitle = document.querySelector('[changing-title]');
 
 //chosen filter options
 const filters = {
@@ -58,6 +59,7 @@ const getFilters = () => {
   let maxPrice = priceInput[1].value;
   filters.price = [minPrice, maxPrice];
   console.log(filters);
+  mainTitle.textContent = 'Found Books';
   return filters;
 }
 
@@ -73,7 +75,7 @@ for (const input of rangeInput) {
   input.addEventListener('input', handlePriceSlider);
 }
 
-filterBtn.addEventListener('click', getFilters)
+filterBtn.addEventListener('click', getFilters);
 
 const handleSearchClick = (e) => {
     const input = inputField.value;
@@ -88,3 +90,25 @@ const handleSearchClick = (e) => {
 }
 
 searchButton.addEventListener('click', handleSearchClick);
+
+
+//showing books
+const bookListTemplate = document.querySelector('[books-list-template]');
+const bookListContainer = document.querySelector('[data-books-list-container]');
+let bookResults = [];
+let bd = [];
+
+document.addEventListener('DOMContentLoaded', () => {
+      bd.map((book) => {
+      const card = bookListTemplate.content.cloneNode(true).children[0];
+      const bookNameHeader = card.querySelector("[data-name-book]");
+      const bookAuthorHeader = card.querySelector("[data-author-book]");
+      const bookPriceHeader = card.querySelector("[data-price-book]");
+      bookNameHeader.textContent = book.name;
+      bookAuthorHeader.textContent = book.author;
+      bookPriceHeader.textContent = book.price;
+      bookListContainer.append(card);
+    });
+})
+
+
