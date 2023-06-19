@@ -8,7 +8,8 @@ const cors = require('cors');
 const pageRouter = require('./pageRouter');
 const authRouter = require('./auth/authRouter');
 const booksRouter = require('./books/booksRouter');
-const authorsRouter = require('./authors/authorsRouter')
+const authorsRouter = require('./authors/authorsRouter');
+const genresRouter = require('./genres/genresRouter')
 const bodyParser = require('body-parser');
 const emailRouter = require('./email/emailRouter');
 
@@ -20,6 +21,7 @@ app.use('/', pageRouter);
 app.use('/', authRouter);
 app.use('/', booksRouter);
 app.use('/', authorsRouter);
+app.use('/', genresRouter);
 app.use('/', emailRouter);
 
 app.listen(port, () => {
