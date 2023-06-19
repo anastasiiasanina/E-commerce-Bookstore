@@ -175,4 +175,26 @@
 .find-btn:hover {
     background-color: rgb(95, 93, 93);
 }
-
+.searchBox{
+    width: 320px;
+    background-color: #fff;
+    border-radius: 5px;
+}
+.row{
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+}
+.resultBox ul{
+    border-top: 1px solid #999;
+    padding: 15px 10px;  
+}
+.resultBox ul li{
+    list-style: none;
+    border-radius: 3px;
+    padding: 15px 10px;
+    cursor: pointer;
+}
+.resultBox ul li:hover {
+    background-color: #e9f3ff;
+}
