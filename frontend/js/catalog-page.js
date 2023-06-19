@@ -1,35 +1,36 @@
 //elements of price slider
-const rangeInput = document.querySelectorAll('.range-input input');
-const priceInput = document.querySelectorAll('.price-input input');
-const range = document.querySelector('.slider .progress');
+const rangeInput = document.querySelectorAll(".range-input input");
+const priceInput = document.querySelectorAll(".price-input input");
+const range = document.querySelector(".slider .progress");
 
 //filter options
-const titlesOfGenres = document.getElementsByClassName('title');
-const titlesOfAuthors = document.getElementsByClassName('author');
+const titlesOfGenres = document.getElementsByClassName("title");
+const titlesOfAuthors = document.getElementsByClassName("author");
 
-//buttons and labels for finding books
-const filterBtn = document.querySelector('.find-btn');
-const mainTitle = document.querySelector('[changing-title]');
+//button 'find books'
+const filterBtn = document.querySelector(".find-btn");
+const searchInput = document.querySelector(".searchInput");
+const resultBox = document.querySelector(".resultBox");
 
 //chosen filter options
 const filters = {
-  genres: [], 
+  genres: [],
   authors: [],
-  price: []
-}
+  price: [],
+};
 
 const handleClick = (e, arr) => {
   const selectedText = e.target.textContent;
 
-  if (e.target.classList.contains('active')) {
-    e.target.classList.remove('active');
+  if (e.target.classList.contains("active")) {
+    e.target.classList.remove("active");
     let index = arr.indexOf(selectedText);
     arr.splice(index, 1);
   } else {
-    e.target.classList.add('active');
+    e.target.classList.add("active");
     arr.push(selectedText);
   }
-}
+};
 
 const handlePriceSlider = (e) => {
   let priceGap = 10;
@@ -37,7 +38,7 @@ const handlePriceSlider = (e) => {
   let maxVal = parseInt(rangeInput[1].value);
 
   if (maxVal - minVal < priceGap) {
-    if (e.target.className === 'range-min') {
+    if (e.target.className === "range-min") {
       rangeInput[0].value = maxVal - priceGap;
     } else {
       rangeInput[1].value = minVal + priceGap;
@@ -45,10 +46,10 @@ const handlePriceSlider = (e) => {
   } else {
     priceInput[0].value = minVal;
     priceInput[1].value = maxVal;
-    range.style.left = (minVal / rangeInput[0].max) * 100 + '%';
-    range.style.right = 100 - (maxVal / rangeInput[1].max) * 100 + '%';
+    range.style.left = (minVal / rangeInput[0].max) * 100 + "%";
+    range.style.right = 100 - (maxVal / rangeInput[1].max) * 100 + "%";
   }
-}
+};
 
 const getFilters = () => {
   let minPrice = priceInput[0].value;
@@ -57,18 +58,18 @@ const getFilters = () => {
   console.log(filters);
   mainTitle.textContent = 'Found Books';
   return filters;
-}
+};
 
 for (const title of titlesOfGenres) {
-  title.addEventListener('click', (e) => handleClick(e, filters.genres));
+  title.addEventListener("click", (e) => handleClick(e, filters.genres));
 }
 
 for (const title of titlesOfAuthors) {
-  title.addEventListener('click', (e) => handleClick(e, filters.authors));
+  title.addEventListener("click", (e) => handleClick(e, filters.authors));
 }
 
 for (const input of rangeInput) {
-  input.addEventListener('input', handlePriceSlider);
+  input.addEventListener("input", handlePriceSlider);
 }
 
 filterBtn.addEventListener('click', getFilters);
@@ -94,3 +95,30 @@ document.addEventListener('DOMContentLoaded', () => {
 })
 
 
+filterBtn.addEventListener("click", getFilters);
+
+
+//DropBox
+let arrKeywords = [
+  "The Adventures of Sherlock Holmes",
+  "It Ends With Us",
+  "Goblet of Fire",
+  "The Picture of Dorian Gray",
+];
+inputField.onkeyup = function () {
+  let db = [];
+  let inputedSearch = inputField.value;
+  if (inputedSearch.length) {
+    db = arrKeywords.filter((keyword) => {
+      return keyword.toLowerCase().includes(inputedSearch.toLowerCase());
+    });
+    console.log(db);
+  }
+  displayDropBox(db);
+};
+function displayDropBox(db) {
+  const content = db.map((list) => {
+    return "<li>" + list + "</li>";
+  });
+  resultBox.innerHTML = "<ul>" + content.join("") + "</ul>";
+}
