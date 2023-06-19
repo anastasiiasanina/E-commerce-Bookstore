@@ -1,15 +1,73 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sign in</title>
-</head>
-<body>
-  <label>Username</label>
-  <input>
-  <label>Password</label>
-  <input>
-</body>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Sign In Form</title>
+    <link rel="stylesheet" href='/css/home.css'>
+    <link rel="stylesheet" href='/css/catalog.css'>
+    <link rel="stylesheet" href='/css/search.css'>
+    <link rel="icon" href="https://img.icons8.com/ios-filled/50/love-circled.png"" />
+    <link href='https://unpkg.com/css.gg@2.0.0/icons/css/search.css' rel='stylesheet'>
+    <link href='https://unpkg.com/css.gg@2.0.0/icons/css/profile.css' rel='stylesheet'>
+    <link href='https://unpkg.com/css.gg@2.0.0/icons/css/shopping-bag.css' rel='stylesheet'>
+  </head>
+  <body>
+    <div class="menu-top">
+      <div class="menu-titles">
+        <a href="/home" class="menu-title">Home</a>
+        <a href="/catalog" class="menu-title">Catalog</a>
+        <a href="#delivery" class="menu-title">Delivery</a>
+        <a href="#contacts" class="menu-title">Contacts</a>
+      </div>
+      <div class="logo">I&#10084;BOOKS</div>
+      <div class="menu-icons">
+        <input id="searchbar" class="form-control" placeholder="Search books here..." type="text"></input>
+        <i id="search" class="menu-icon gg-search"></i>
+        <a href="/signin"><i class="menu-icon gg-profile"></i></a>
+        <i class="menu-icon gg-shopping-bag"></i>
+      </div>
+    </div>
+    <div class="info-section sign">
+      <h2>Sign In</h2>
+      <form  id="signin-form">
+        <label for="username">Username:</label>
+        <input type="text" id="username" required><br><br>
+      
+        <label for="password">Password:</label>
+        <input type="password" id="password" required><br><br>
+      
+        <button class="button-sign" type="submit">Sign In</button>
+      </form>
+      <div id="message"></div>
+    </div>
+    <div class="sep-footer"></div>
+    <footer>
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>About Us</h3>
+          <p>Welcome to I&#10084;BOOKS, your one-stop destination for all things books. We are passionate about literature and dedicated to providing book lovers with an exceptional reading experience.</p>
+        </div>
+        <div class="footer-section">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="/home">Home</a></li>
+            <li><a href="/catalog">Catalog</a></li>
+            <li><a href="/home#delivery">Delivery</a></li>
+            <li><a href="/home#contacts">Contacts</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Contact Us</h3>
+          <p>Email: no_support@gmail.com</p>
+          <p>Email: no_sales@gmail.com</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2023 I&#10084;BOOKS. All rights reserved.</p>
+      </div>
+    </footer>
+  </body>
+  <script src="../js/search-engine.js"></script>
+  <script src="../js/signin.js"></script>
 </html>
+
