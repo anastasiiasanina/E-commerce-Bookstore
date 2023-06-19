@@ -7,10 +7,6 @@ const range = document.querySelector('.slider .progress');
 const titlesOfGenres = document.getElementsByClassName('title');
 const titlesOfAuthors = document.getElementsByClassName('author');
 
-//search engine
-const inputField = document.querySelector('#searchbar');
-const searchButton = document.querySelector('#search');
-
 //buttons and labels for finding books
 const filterBtn = document.querySelector('.find-btn');
 const mainTitle = document.querySelector('[changing-title]');
@@ -76,20 +72,6 @@ for (const input of rangeInput) {
 }
 
 filterBtn.addEventListener('click', getFilters);
-
-const handleSearchClick = (e) => {
-    const input = inputField.value;
-    if (input == '') {
-       inputField.classList.add('error');
-    } else {
-        inputField.classList.remove('error');
-        inputField.value = '';
-        const searchURL = '/search?query=' + encodeURIComponent(input);
-        window.open(searchURL, '_blank');
-    }
-}
-
-searchButton.addEventListener('click', handleSearchClick);
 
 
 //showing books
