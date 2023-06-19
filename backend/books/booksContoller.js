@@ -10,11 +10,11 @@ let sql;
 
 const addBook = (req, res) => {
   try {
-    const {name, price, description, genre, author} = req.body;
-    sql = "INSERT INTO books(name, price, description, genre, author) VALUES (?,?,?,?,?)"
-    db.run(sql, [name, price, description, genre, author], (err) => {
+    const {name, price, description, genre, author, amount} = req.body;
+    sql = "INSERT INTO books(name, price, description, genre, author, amount) VALUES (?,?,?,?,?,?)"
+    db.run(sql, [name, price, description, genre, author, amount], (err) => {
       if(err) res.status(300).json({ message: 'Error found' });
-      console.log('success: ', name, price, description, genre, author)
+      console.log('success: ', name, price, description, genre, author, amount)
     });
 
     res.status(201).json("Created");
@@ -39,7 +39,12 @@ const getAllBooks = (req, res) => {
 
 const getBook = (req, res) => {
   try {
+    const sql = 'SELECT * ' + 'FROM books ' + `WHERE id = ${req.params.id}`;
     
+    db.each(sql, [], (err, row) => {
+      if(err) res.status(300).json({ message: 'Error found' });
+      res.status(200).json(row);
+    });
   } catch (error) {
     res.status(400).json({ message: 'Error found' });
   }
@@ -47,7 +52,12 @@ const getBook = (req, res) => {
 
 const deleteBook = (req, res) => {
   try {
-    
+    const sql = 'DELETE * ' + 'FROM books ' + `WHERE id = ${req.params.id}`;
+
+    db.each(sql, [], (err, row) => {
+      if(err) res.status(300).json({ message: 'Error found' });
+      res.status(200).json(row);
+    });
   } catch (error) {
     res.status(400).json({ message: 'Error found' });
   }
