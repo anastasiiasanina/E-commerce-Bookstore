@@ -1,13 +1,17 @@
+'use strict'
+
 const sqlite = require('sqlite3').verbose()
-const db = new sqlite.Database('./db/books.db', sqlite.OPEN_READWRITE, (err) => {
-  if(err) console.log(err)
+const db = new sqlite.Database(
+  './db/books.db', 
+  sqlite.OPEN_READWRITE, (err) => {
+    if(err) console.log(err)
 })
 let sql;
 
 const addBook = (req, res) => {
   try {
     const {name, price, description, genre, author} = req.body;
-    sql = "INSERT INTO books(name, price, description, genre, author) VALUES (?,?,?,?)"
+    sql = "INSERT INTO books(name, price, description, genre, author) VALUES (?,?,?,?,?)"
     db.run(sql, [name, price, description, genre, author], (err) => {
       if(err) res.status(300).json({ message: 'Error found' });
       console.log('success: ', name, price, description, genre, author)
