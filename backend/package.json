@@ -4,6 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "fix": "npx eslint . --fix",
+    "lint": "npx eslint .",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -17,9 +19,17 @@
   },
   "homepage": "https://github.com/anastasiiasanina/E-commerce-Bookstore#readme",
   "dependencies": {
-    "express": "^4.18.2"
+    "@google-cloud/local-auth": "^2.1.1",
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.20.2",
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "googleapis": "^118.0.0",
+    "nodemon": "^2.0.22",
+    "sqlite3": "^5.1.6"
   },
   "devDependencies": {
+    "eslint": "^8.43.0",
     "nodemon": "^2.0.22"
   }
 }
