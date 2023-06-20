@@ -1,4 +1,5 @@
 const bcrypt = require('bcryptjs');
+const {validateUser} = require('../helpers/userValidation');
 const sqlite = require('sqlite3').verbose()
 const db = new sqlite.Database('./db/users.db', sqlite.OPEN_READWRITE, (err) => {
   if(err) console.log(err)
@@ -8,13 +9,15 @@ let sql;
 const registration = (req, res) => {
   try {
     const {username, password} = req.body;
-    sql = "INSERT INTO users(username, password) VALUES (?,?)"
+    let isRegistered = validateUser(username, db);
+    console.log(isRegistered)
+    /*sql = "INSERT INTO users(username, password) VALUES (?,?)"
     db.run(sql, [username, password], (err) => {
       if(err) res.status(300).json({ message: 'Error found' });
       console.log('success: ', username, password)
     });
 
-    res.status(201).json("Created");
+    res.status(201).json("Created");*/
   } catch (error) {
     res.status(400).json({ message: 'Error found' });
   }
@@ -42,6 +45,19 @@ const getAllUsers = (req, res) => {
   }
 }
 
+const getUser = (req, res) => {
+  try {
+    const sql = 'SELECT * ' + 'FROM users ' + `WHERE id = ${req.params.id}`;
+    
+    db.each(sql, [], (err, row) => {
+      if(err) res.status(300).json({ message: 'Error found' });
+      res.status(200).json(row);
+    });
+  } catch (error) {
+    res.status(400).json({ message: 'Error found' });
+  }
+}
+
 const deleteUser = (req, res) => {
   try {
     const sql = 'DELETE ' + 'FROM users ' + `WHERE id = ${req.params.id}`;
@@ -59,5 +75,6 @@ module.exports = {
   registration,
   login,
   getAllUsers,
-  deleteUser
+  deleteUser,
+  getUser
 }
