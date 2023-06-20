@@ -27,19 +27,30 @@ const inputSearchModule = (function () {
     resultBox.innerHTML = "";
   };
 
-  const displayDropBox = (searchResult) => {
-    const ulElem = document.createElement("ul");
-    searchResult.forEach((list) => {
+  const createListItems = (searchResult) => {
+    return searchResult.map((list) => {
       const liElem = document.createElement("li");
       liElem.textContent = list;
+
       liElem.addEventListener("click", () => {
-        inputField.value = liElem.textContent;
+        inputField.value = list;
       });
-      ulElem.appendChild(liElem);
+
+      return liElem;
     });
+  };
+
+  const appendListItems = (listItems) => {
+    const ulElem = document.createElement("ul");
+    ulElem.append(...listItems);
 
     clearResultBox();
     resultBox.appendChild(ulElem);
+  };
+
+  const displayDropBox = (searchResult) => {
+    const listItems = createListItems(searchResult);
+    appendListItems(listItems);
   };
 
   const initialize = () => {
