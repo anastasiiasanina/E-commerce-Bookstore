@@ -92,37 +92,40 @@ const handleSearchClick = (e) => {
 searchButton.addEventListener("click", handleSearchClick);
 
 //DropBox
-let arrKeywords = [
-  "The Adventures of Sherlock Holmes",
-  "It Ends With Us",
-  "Goblet of Fire",
-  "The Picture of Dorian Gray",
-];
-inputField.onkeyup = function () {
-  let db = [];
-  let inputedSearch = inputField.value;
-  if (inputedSearch.length) {
-    db = arrKeywords.filter((keyword) => {
-      return keyword.toLowerCase().includes(inputedSearch.toLowerCase());
-    });
-    console.log(db);
-  }
-  displayDropBox(db);
-};
-function displayDropBox(db) {
-  const ulElem = document.createElement("ul");
-  db.forEach((list) => {
-    let liElem = document.createElement("li");
-    liElem.textContent = list;
-    liElem.addEventListener("click", () => {
-      inputField.value = liElem.textContent;
-    });
-    ulElem.appendChild(liElem);
-  });
+// let arrKeywords = [
+//   "The Adventures of Sherlock Holmes",
+//   "It Ends With Us",
+//   "Goblet of Fire",
+//   "The Picture of Dorian Gray",
+// ];
 
-  resultBox.innerHTML = "";
-  resultBox.appendChild(ulElem);
-}
-function selectInput(list) {
-  inputField.value = list.innerHTML;
-}
+// inputField.addEventListener("input", () => {
+//   let searchResult = [];
+//   let inputedSearch = inputField.value;
+//   searchResult = arrKeywords.filter((keyword) => {
+//     return keyword.toLowerCase().includes(inputedSearch.toLowerCase());
+//   });
+//   displayDropBox(searchResult);
+// });
+
+// const displayDropBox = (searchResult) => {
+//   const ulElem = document.createElement("ul");
+//   searchResult.filter((list) => {
+//     let liElem = document.createElement("li");
+//     liElem.textContent = list;
+//     liElem.addEventListener("click", () => {
+//       inputField.value = liElem.textContent;
+//     });
+//     ulElem.appendChild(liElem);
+//   });
+
+//   resultBox.innerHTML = "";
+//   resultBox.appendChild(ulElem);
+// };
+
+// document.addEventListener("click", (event) => {
+//   const target = event.target;
+//   if (!resultBox.contains(target)) {
+//     resultBox.innerHTML = "";
+//   }
+// });
