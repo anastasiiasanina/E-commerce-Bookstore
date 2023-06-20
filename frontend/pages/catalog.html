@@ -6,34 +6,35 @@
   <title>Catalog</title>
   <link rel="stylesheet" href='/css/home.css'>
   <link rel="stylesheet" href='/css/catalog.css'>
-  <link rel="icon" href="https://img.icons8.com/ios-filled/50/love-circled.png"" />
-    <link href='https://unpkg.com/css.gg@2.0.0/icons/css/search.css' rel='stylesheet'>
-    <link href='https://unpkg.com/css.gg@2.0.0/icons/css/profile.css' rel='stylesheet'>
-    <link href='https://unpkg.com/css.gg@2.0.0/icons/css/shopping-bag.css' rel='stylesheet'>
-  </head>
-  <body>
-    <div class=" menu-top">
-  <div class="menu-titles">
-    <a href="/home" class="menu-title">Home</a>
-    <a href="/catalog" class="menu-title">Catalog</a>
-    <a href="/home#delivery" class="menu-title">Delivery</a>
-    <a href="/home#contacts" class="menu-title">Contacts</a>
-  </div>
-  <div class="logo">I&#10084;BOOKS</div>
-  <div class="menu-icons">
-    <div class="searchBox">
-      <div class="'row">
-        <input id="searchbar" class="form-control" placeholder="Search books here..." type="text" data-search
-          autocomplete="off"></input>
-      </div>
-      <div id="resultsBox" class="resultBox">
-        <!-- here list are inserted from javascript -->
-      </div>
+  <link rel="icon" href="https://img.icons8.com/ios-filled/50/love-circled.png" />
+  <link href='https://unpkg.com/css.gg@2.0.0/icons/css/search.css' rel='stylesheet'>
+  <link href='https://unpkg.com/css.gg@2.0.0/icons/css/profile.css' rel='stylesheet'>
+  <link href='https://unpkg.com/css.gg@2.0.0/icons/css/shopping-bag.css' rel='stylesheet'>
+</head>
+
+<body>
+  <div class=" menu-top">
+    <div class="menu-titles">
+      <a href="/home" class="menu-title">Home</a>
+      <a href="/catalog" class="menu-title">Catalog</a>
+      <a href="/home#delivery" class="menu-title">Delivery</a>
+      <a href="/home#contacts" class="menu-title">Contacts</a>
     </div>
-    <i id="search" class="menu-icon gg-search"></i>
-    <i class="menu-icon gg-profile"></i>
-    <i class="menu-icon gg-shopping-bag"></i>
-  </div>
+    <div class="logo">I&#10084;BOOKS</div>
+    <div class="menu-icons">
+      <div class="searchBox">
+        <div class="'row">
+          <input id="searchbar" class="form-control" placeholder="Search books here..." type="text" data-search
+            autocomplete="off"></input>
+        </div>
+        <div id="resultsBox" class="resultBox">
+          <!-- here list are inserted from javascript -->
+        </div>
+      </div>
+      <i id="search" class="menu-icon gg-search"></i>
+      <i class="menu-icon gg-profile"></i>
+      <i class="menu-icon gg-shopping-bag"></i>
+    </div>
   </div>
   <div class="categories">
     <h3 class="categories-title">Categories of books</h3>
@@ -112,8 +113,9 @@
       <p>&copy; 2023 I&#10084;BOOKS. All rights reserved.</p>
     </div>
   </footer>
-  </body>
+</body>
 
-  <script src="../js/catalog-page.js"></script>
+<script src="../js/catalog-page.js"></script>
+<script src="../js/autocompliteInput.js"></script>
 
 </html>
