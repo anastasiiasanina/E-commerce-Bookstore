@@ -1,37 +1,55 @@
-let arrKeywords = [
-  "The Adventures of Sherlock Holmes",
-  "It Ends With Us",
-  "Goblet of Fire",
-  "The Picture of Dorian Gray",
-];
+"use strict";
 
-inputField.addEventListener("input", () => {
-  let searchResult = [];
-  let inputedSearch = inputField.value;
-  searchResult = arrKeywords.filter((keyword) => {
-    return keyword.toLowerCase().includes(inputedSearch.toLowerCase());
-  });
-  displayDropBox(searchResult);
-});
+const inputSearchModule = (function () {
+  const arrKeywords = [
+    "The Adventures of Sherlock Holmes",
+    "It Ends With Us",
+    "Goblet of Fire",
+    "The Picture of Dorian Gray",
+  ];
 
-const displayDropBox = (searchResult) => {
-  const ulElem = document.createElement("ul");
-  searchResult.filter((list) => {
-    let liElem = document.createElement("li");
-    liElem.textContent = list;
-    liElem.addEventListener("click", () => {
-      inputField.value = liElem.textContent;
+  const handleInput = () => {
+    const inputedSearch = inputField.value;
+    const searchResult = arrKeywords.filter((keyword) => {
+      return keyword.toLowerCase().includes(inputedSearch.toLowerCase());
     });
-    ulElem.appendChild(liElem);
-  });
+    displayDropBox(searchResult);
+  };
 
-  resultBox.innerHTML = "";
-  resultBox.appendChild(ulElem);
-};
+  const handleDocumentClick = (event) => {
+    const target = event.target;
+    if (!resultBox.contains(target)) {
+      clearResultBox();
+    }
+  };
 
-document.addEventListener("click", (event) => {
-  const target = event.target;
-  if (!resultBox.contains(target)) {
+  const clearResultBox = () => {
     resultBox.innerHTML = "";
-  }
-});
+  };
+
+  const displayDropBox = (searchResult) => {
+    const ulElem = document.createElement("ul");
+    searchResult.forEach((list) => {
+      const liElem = document.createElement("li");
+      liElem.textContent = list;
+      liElem.addEventListener("click", () => {
+        inputField.value = liElem.textContent;
+      });
+      ulElem.appendChild(liElem);
+    });
+
+    clearResultBox();
+    resultBox.appendChild(ulElem);
+  };
+
+  const initialize = () => {
+    inputField.addEventListener("input", handleInput);
+    document.addEventListener("click", handleDocumentClick);
+  };
+
+  return {
+    initialize: initialize,
+  };
+})();
+
+inputSearchModule.initialize();

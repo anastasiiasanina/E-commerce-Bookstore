@@ -1,3 +1,4 @@
+"use strict";
 //elements of price slider
 const rangeInput = document.querySelectorAll(".range-input input");
 const priceInput = document.querySelectorAll(".price-input input");
