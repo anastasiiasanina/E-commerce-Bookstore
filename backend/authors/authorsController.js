@@ -1,5 +1,5 @@
 const sqlite = require('sqlite3').verbose()
-const db = new sqlite.Database('./db/books.db', sqlite.OPEN_READWRITE, (err) => {
+const db = new sqlite.Database('./db/authors.db', sqlite.OPEN_READWRITE, (err) => {
   if(err) console.log(err)
 })
 let sql;
@@ -48,9 +48,9 @@ const getAllAuthors = (req, res) => {
 
 const deleteAuthor = (req, res) => {
   try {
-    const sql = 'DELETE * ' + 'FROM authors ' + `WHERE id = ${req.params.id}`;
+    const sql = 'DELETE ' + 'FROM authors ' + `WHERE id = ${req.params.id}`;
 
-    db.each(sql, [], (err, row) => {
+    db.run(sql, [], (err, row) => {
       if(err) res.status(300).json({ message: 'Error found' });
       res.status(200).json(row);
     });

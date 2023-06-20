@@ -28,7 +28,36 @@ const login = (req, res) => {
   }
 }
 
+const getAllUsers = (req, res) => {
+  try {
+    sql = "SELECT * FROM users"
+    db.all(sql, [], (err, rows) => {
+      if(err) res.status(300).json({ message: 'Error found' });
+      if(rows.length < 1) res.status(300).json({ message: 'No match' });
+
+      res.status(200).json(rows);
+    })
+  } catch (error) {
+    res.status(400).json({ message: 'Error found' });
+  }
+}
+
+const deleteUser = (req, res) => {
+  try {
+    const sql = 'DELETE ' + 'FROM users ' + `WHERE id = ${req.params.id}`;
+
+    db.run(sql, [], (err, row) => {
+      if(err) {res.status(300).json({ message: 'Error' }); console.log(err)}
+      res.status(200).json(row);
+    });
+  } catch (error) {
+    res.status(400).json({ message: 'Error found' });
+  }
+}
+
 module.exports = {
   registration,
-  login
+  login,
+  getAllUsers,
+  deleteUser
 }

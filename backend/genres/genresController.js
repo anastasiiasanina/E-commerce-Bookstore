@@ -52,9 +52,9 @@ const getGenre = (req, res) => {
 
 const deleteGenre = (req, res) => {
   try {
-    const sql = 'DELETE * ' + 'FROM genres ' + `WHERE id = ${req.params.id}`;
+    const sql = 'DELETE ' + 'FROM genres ' + `WHERE id = ${req.params.id}`;
 
-    db.each(sql, [], (err, row) => {
+    db.run(sql, [], (err, row) => {
       if(err) res.status(300).json({ message: 'Error found' });
       res.status(200).json(row);
     });
