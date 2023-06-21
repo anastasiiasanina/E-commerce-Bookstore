@@ -1,5 +1,5 @@
 const bcrypt = require('bcryptjs');
-const {validateUser} = require('../helpers/userValidation');
+const {validateUser} = require('../../helpers/userValidation');
 const sqlite = require('sqlite3').verbose()
 const db = new sqlite.Database('./db/users.db', sqlite.OPEN_READWRITE, (err) => {
   if(err) console.log(err)
@@ -66,7 +66,7 @@ const deleteUser = (req, res) => {
 
     db.run(sql, [], (err, row) => {
       if(err) {res.status(300).json({ message: 'Error' }); console.log(err)}
-      res.status(200).json(row);
+      res.status(200).json({ message: 'Deleted' });
     });
   } catch (error) {
     res.status(400).json({ message: 'Error found' });
