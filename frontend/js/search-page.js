@@ -1,10 +1,6 @@
 //div for showing search input
 const inputTitle = document.getElementById('input');
 
-//searching books
-const bookListTemplate = document.querySelector('[books-list-template]');
-const bookListContainer = document.querySelector('[data-books-list-container]');
-
 //NOT READY YET
 const getBooksFromBD = () => {
   
