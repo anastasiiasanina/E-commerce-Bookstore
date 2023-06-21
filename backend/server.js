@@ -6,10 +6,10 @@ const app = express();
 const port = 8000;
 const cors = require('cors');
 const pageRouter = require('./pageRouter');
-const authRouter = require('./auth/authRouter');
-const booksRouter = require('./books/booksRouter');
-const authorsRouter = require('./authors/authorsRouter');
-const genresRouter = require('./genres/genresRouter')
+const authRouter = require('./API/auth/authRouter');
+const booksRouter = require('./API/books/booksRouter');
+const authorsRouter = require('./API/authors/authorsRouter');
+const genresRouter = require('./API/genres/genresRouter')
 const bodyParser = require('body-parser');
 const emailRouter = require('./email/emailRouter');
 
