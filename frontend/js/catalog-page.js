@@ -9,16 +9,17 @@ const range = document.querySelector(".slider .progress");
 const filterBtn = document.querySelector(".find-btn");
 
 //titles of the menu
-const titlesOfGenres = document.getElementsByClassName('title');
-const titlesOfAuthors = document.getElementsByClassName('author');
+const titlesOfGenres = document.getElementsByClassName("title");
+const titlesOfAuthors = document.getElementsByClassName("author");
 
 //elements for showing books
-const bookListTemplate = document.querySelector('[books-list-template]');
-const bookListContainer = document.querySelector('[data-books-list-container]');
-const mainTitle = document.querySelector('[changing-title]');
+const bookListTemplate = document.querySelector("[books-list-template]");
+const bookListContainer = document.querySelector("[data-books-list-container]");
+const mainTitle = document.querySelector("[changing-title]");
 
 const searchInput = document.querySelector(".searchInput");
 const resultBox = document.querySelector(".resultBox");
+const inputField = document.querySelector("#searchbar");
 
 //chosen filter options
 const filters = {
@@ -29,27 +30,27 @@ const filters = {
 
 const getBooksFromBD = async () => {
   try {
-    let response = await fetch('http://localhost:8000/api/v1/books')
+    let response = await fetch("http://localhost:8000/api/v1/books");
     let data = await response.json();
     let arrayOfBooks = [];
     for (const book of data) {
-      arrayOfBooks.push(book)
+      arrayOfBooks.push(book);
     }
     return arrayOfBooks;
   } catch (e) {
-    console.error('Error occured:', e);
+    console.error("Error occured:", e);
   }
-}
+};
 
 //event handler for clicks on menu
 const handleClick = (e, arr) => {
   const selectedText = e.target.textContent;
-  if (e.target.classList.contains('active')) {
-    e.target.classList.remove('active');
+  if (e.target.classList.contains("active")) {
+    e.target.classList.remove("active");
     let index = arr.indexOf(selectedText);
     arr.splice(index, 1);
   } else {
-    e.target.classList.add('active');
+    e.target.classList.add("active");
     arr.push(selectedText);
   }
 };
@@ -79,7 +80,7 @@ const getFilters = () => {
   let minPrice = priceInput[0].value;
   let maxPrice = priceInput[1].value;
   filters.price = [minPrice, maxPrice];
-  mainTitle.textContent = 'Found Books';
+  mainTitle.textContent = "Found Books";
   return filters;
 };
 
@@ -87,12 +88,10 @@ const getFilters = () => {
 const filterBooks = (e, arrayOfBooks) => {
   getFilters();
   const { genres, authors, price } = filters;
-  const filteredBooks = arrayOfBooks.filter(book => {
-    return (
-      genres.includes(book.genre) && authors.includes(book.author) 
-    );
+  const filteredBooks = arrayOfBooks.filter((book) => {
+    return genres.includes(book.genre) && authors.includes(book.author);
   });
-  
+
   while (bookListContainer.firstChild) {
     bookListContainer.removeChild(bookListContainer.firstChild);
   }
@@ -100,47 +99,47 @@ const filterBooks = (e, arrayOfBooks) => {
   for (const book of filteredBooks) {
     displayCard(book);
   }
-} 
+};
 
 //showing books
 const displayCard = (bookInfo) => {
   const card = bookListTemplate.content.cloneNode(true).children[0];
-  const bookNameHeader = card.querySelector('[data-name-book]');
-  const bookAuthorHeader = card.querySelector('[data-author-book]');
-  const bookPriceHeader = card.querySelector('[data-price-book]');
+  const bookNameHeader = card.querySelector("[data-name-book]");
+  const bookAuthorHeader = card.querySelector("[data-author-book]");
+  const bookPriceHeader = card.querySelector("[data-price-book]");
   bookNameHeader.textContent = bookInfo.name;
   bookAuthorHeader.textContent = bookInfo.author;
   bookPriceHeader.textContent = bookInfo.price;
   bookListContainer.append(card);
-}
+};
 
 //displaying titles on menu
 const displayCategories = (arrayOfBooks) => {
-  const genresContainer = document.querySelector('.categories-text');
-  const authorsContainer = document.querySelector('.authors-list');
+  const genresContainer = document.querySelector(".categories-text");
+  const authorsContainer = document.querySelector(".authors-list");
   let authors = [];
   let genres = [];
 
   for (const book of arrayOfBooks) {
-      if (!authors.includes(book.author)) {
-        authors.push(book.author);
-        const author = document.createElement('li');
-        author.classList.add('author');
-        author.textContent = book.author;
-        authorsContainer.appendChild(author);
-      }
-      
-      if (!genres.includes(book.genre)) {
-        genres.push(book.genre);
-        const genre = document.createElement('div');
-        genre.classList.add('title');
-        genre.textContent = book.genre;
-        genresContainer.appendChild(genre);
-      }
-  }
-}
+    if (!authors.includes(book.author)) {
+      authors.push(book.author);
+      const author = document.createElement("li");
+      author.classList.add("author");
+      author.textContent = book.author;
+      authorsContainer.appendChild(author);
+    }
 
-document.addEventListener('DOMContentLoaded', async () => {
+    if (!genres.includes(book.genre)) {
+      genres.push(book.genre);
+      const genre = document.createElement("div");
+      genre.classList.add("title");
+      genre.textContent = book.genre;
+      genresContainer.appendChild(genre);
+    }
+  }
+};
+
+document.addEventListener("DOMContentLoaded", async () => {
   try {
     const allBooks = await getBooksFromBD();
     displayCategories(allBooks);
@@ -162,8 +161,8 @@ document.addEventListener('DOMContentLoaded', async () => {
       input.addEventListener("input", handlePriceSlider);
     }
 
-    filterBtn.addEventListener('click', (e) => filterBooks(e, allBooks));
+    filterBtn.addEventListener("click", (e) => filterBooks(e, allBooks));
   } catch (error) {
-    console.error('Error occurred:', error);
+    console.error("Error occurred:", error);
   }
 });
