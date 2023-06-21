@@ -1,0 +1,113 @@
+@import url('https://fonts.googleapis.com/css2?family=Commissioner:wght@400;600&display=swap');
+body {
+    font-family: 'Commissioner';
+}
+*{
+    scroll-behavior: smooth;
+    margin: 0;
+}
+.container-sign-up{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    width: 100vw;
+}
+.img-container{
+    position: relative;
+    width: 50%;
+    height: 100vh;
+    /* background-color:brown; */
+    background-image: url('/css/backkk.jpg');
+    background-size: cover;
+    background-position: center;
+} 
+.input-container{
+    position:relative;
+    width: 50%;
+    height: 100vh;
+    background: #FFFFFF
+}
+.body-input{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 147px 137px 148px 138px;
+    z-index: 2;
+}
+.header-bold{
+    font-size: 32px;
+    font-weight: 600;
+}
+.input-field{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    text-align: left;
+}
+input{
+    font-size: 20px;
+    margin-top: 16px;
+    border-radius: 50px;
+    outline: 0;
+    border-width: 1px;
+    border-style: solid;
+    width: 420px;
+    height: 50px;
+    padding-left: 24px;
+    border-color: rgba(69, 68, 98, 0.42); ;
+    color: rgba(69, 68, 98, 0.42);
+}
+input::placeholder{
+    color: rgba(69, 68, 98, 0.42); 
+}
+label{
+    margin-top: 32px;
+    font-size: 24px;
+    font-weight: 500;
+}
+.signup-btn{
+    justify-content: center;
+    text-align: center;
+    width: 420px;
+    height: 50px;
+    font-size: 20px;
+    margin-top: 84px;
+    border-radius: 50px;
+    cursor: pointer;
+    background: linear-gradient(92.17deg, #FF77D9 6.36%, #315DF9 117.52%);
+}
+.button-bold{
+    font-size: 24px;
+    font-weight: 600;
+    color: white;
+}
+.link-login-container{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    margin-top: 84px;
+}
+.text-login{
+    font-size: 24px;
+}
+.link-login{
+    font-size: 24px;
+    color: #FF77D9;
+    cursor: pointer;
+}
+.pad-container{
+    width: 443px;
+    padding-top: 524px;
+    padding-left: 100px;
+}
+.back-text-header{
+    font-size: 64px;
+    font-weight: 600;
+    color: white;
+}
+.back-text {
+    font-size: 20px;
+    color: white;
+}

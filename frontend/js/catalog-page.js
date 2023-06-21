@@ -1,3 +1,5 @@
+"use strict";
+
 //elements of price slider
 const rangeInput = document.querySelectorAll(".range-input input");
 const priceInput = document.querySelectorAll(".price-input input");
@@ -165,29 +167,3 @@ document.addEventListener('DOMContentLoaded', async () => {
     console.log('Error occurred:', error);
   }
 });
-
-
-//DropBox
-let arrKeywords = [
-  "The Adventures of Sherlock Holmes",
-  "It Ends With Us",
-  "Goblet of Fire",
-  "The Picture of Dorian Gray",
-];
-inputField.onkeyup = function () {
-  let db = [];
-  let inputedSearch = inputField.value;
-  if (inputedSearch.length) {
-    db = arrKeywords.filter((keyword) => {
-      return keyword.toLowerCase().includes(inputedSearch.toLowerCase());
-    });
-    console.log(db);
-  }
-  displayDropBox(db);
-};
-function displayDropBox(db) {
-  const content = db.map((list) => {
-    return "<li>" + list + "</li>";
-  });
-  resultBox.innerHTML = "<ul>" + content.join("") + "</ul>";
-}

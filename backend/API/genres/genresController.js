@@ -1,13 +1,17 @@
+'use strict'
+
 const sqlite = require('sqlite3').verbose()
-const db = new sqlite.Database('./db/books.db', sqlite.OPEN_READWRITE, (err) => {
-  if(err) console.log(err)
+const db = new sqlite.Database(
+  './db/genres.db', 
+  sqlite.OPEN_READWRITE, (err) => {
+    if(err) console.log(err)
 })
 let sql;
 
-const addAuthor = (req, res) => {
+const addGenre = (req, res) => {
   try {
     const {name} = req.body;
-    sql = "INSERT INTO authors(name) VALUES (?)"
+    sql = "INSERT INTO books(name) VALUES (?)"
     db.run(sql, [name], (err) => {
       if(err) res.status(300).json({ message: 'Error found' });
       console.log('success: ', name)
@@ -19,22 +23,9 @@ const addAuthor = (req, res) => {
   }
 }
 
-const getAuthor = (req, res) => {
+const getAllGenres = (req, res) => {
   try {
-    const sql = 'SELECT * ' + 'FROM authors ' + `WHERE id = ${req.params.id}`;
-    
-    db.each(sql, [], (err, row) => {
-      if(err) res.status(300).json({ message: 'Error found' });
-      res.status(200).json(row);
-    });
-  } catch (error) {
-    res.status(400).json({ message: 'Error found' });
-  }
-}
-
-const getAllAuthors = (req, res) => {
-  try {
-    sql = "SELECT * FROM authors"
+    sql = "SELECT * FROM genres"
     db.all(sql, [], (err, rows) => {
       if(err) res.status(300).json({ message: 'Error found' });
       if(rows.length < 1) res.status(300).json({ message: 'No match' });
@@ -46,10 +37,10 @@ const getAllAuthors = (req, res) => {
   }
 }
 
-const deleteAuthor = (req, res) => {
+const getGenre = (req, res) => {
   try {
-    const sql = 'DELETE * ' + 'FROM authors ' + `WHERE id = ${req.params.id}`;
-
+    const sql = 'SELECT * ' + 'FROM genres ' + `WHERE id = ${req.params.id}`;
+    
     db.each(sql, [], (err, row) => {
       if(err) res.status(300).json({ message: 'Error found' });
       res.status(200).json(row);
@@ -59,9 +50,22 @@ const deleteAuthor = (req, res) => {
   }
 }
 
+const deleteGenre = (req, res) => {
+  try {
+    const sql = 'DELETE ' + 'FROM genres ' + `WHERE id = ${req.params.id}`;
+
+    db.run(sql, [], (err, row) => {
+      if(err) res.status(300).json({ message: 'Error found' });
+      res.status(200).json(row);
+    });
+  } catch (error) {
+    res.status(400).json({ message: 'Error found' });
+  }
+}
+
 module.exports = {
-  addAuthor,
-  getAuthor,
-  deleteAuthor,
-  getAllAuthors
+  addGenre,
+  getGenre,
+  deleteGenre,
+  getAllGenres
 }

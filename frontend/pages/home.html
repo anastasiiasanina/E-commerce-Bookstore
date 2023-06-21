@@ -1,115 +1,124 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>Home</title>
-    <link rel="stylesheet" href='/css/home.css'>
-    <link rel="icon" href="https://img.icons8.com/ios-filled/50/love-circled.png"" />
+
+<head>
+  <meta charset="utf-8">
+  <title>Home</title>
+  <link rel="stylesheet" href='/css/home.css'>
+  <link rel="icon" href="https://img.icons8.com/ios-filled/50/love-circled.png"" />
     <link href='https://unpkg.com/css.gg@2.0.0/icons/css/search.css' rel='stylesheet'>
     <link href='https://unpkg.com/css.gg@2.0.0/icons/css/profile.css' rel='stylesheet'>
     <link href='https://unpkg.com/css.gg@2.0.0/icons/css/shopping-bag.css' rel='stylesheet'>
   </head>
   <body>
-    <div class="menu-top">
-      <div class="menu-titles">
-        <a href="/home" class="menu-title">Home</a>
-        <a href="/catalog" class="menu-title">Catalog</a>
-        <a href="#delivery" class="menu-title">Delivery</a>
-        <a href="#contacts" class="menu-title">Contacts</a>
+    <div class=" menu-top">
+  <div class="menu-titles">
+    <a href="/home" class="menu-title">Home</a>
+    <a href="/catalog" class="menu-title">Catalog</a>
+    <a href="#delivery" class="menu-title">Delivery</a>
+    <a href="#contacts" class="menu-title">Contacts</a>
+  </div>
+  <div class="logo">I&#10084;BOOKS</div>
+  <div class="menu-icons">
+    <input id="searchbar" class="form-control" placeholder="Search books here..." type="text"></input>
+    <i id="search" class="menu-icon gg-search"></i>
+    <i class="menu-icon gg-profile"></i>
+    <i class="menu-icon gg-shopping-bag"></i>
+  </div>
+  </div>
+  <div id="banner">
+    <div class="start-text">
+      <div class="start-head">
+        WHAT BOOK ARE YOU LOOKING FOR?
       </div>
-      <div class="logo">I&#10084;BOOKS</div>
-      <div class="menu-icons">
-        <input id="searchbar" class="form-control" placeholder="Search books here..." type="text"></input>
-        <i id="search" class="menu-icon gg-search"></i>
-        <a href="/signin"><i class="menu-icon gg-profile"></i></a>
-        <i class="menu-icon gg-shopping-bag"></i>
+      <div class="start-desq">
+        Not sure what to read next? Explore our catalog.
+      </div>
+      <a class="button-start" href="/catalog">Explore now</a>
+    </div>
+  </div>
+  <div class="start-books-recommend">
+    <div class="books-header">Trending books</div>
+    <div class="books-recommend-items">
+      <div class="book-item"></div>
+      <div class="book-item"></div>
+      <div class="book-item"></div>
+    </div>
+    <div class="rounds-slider-container">
+      <div class="round-slider"></div>
+      <div class="round-slider"></div>
+      <div class="round-slider"></div>
+      <div class="round-slider"></div>
+    </div>
+    <a class="button-more" href="/catalog">See more</a>
+  </div>
+  <div class="books-header">Delivery And Shipping</div>
+  <div class="info-section" id="delivery">
+    <h4 style="color:rgb(199, 24, 73);">We offer fast and reliable delivery services for all orders placed on our
+      website.</h4>
+    <h3>Shipping Options</h3>
+    <ul>
+      <li><b>Standard Shipping:</b> Delivery within 5-7 business days.</li>
+      <li><b>Express Shipping:</b> Delivery within 2-3 business days. Additional charges apply.</li>
+      <li><b>International Shipping:</b> Delivery time varies based on the destination.</li>
+    </ul>
+    <h3>Shipping Rates</h3>
+    <p>Our shipping rates are based on the total weight of the books in your order and the selected shipping method. The
+      exact shipping cost will be calculated during the checkout process.</p>
+    <h3>Tracking Your Order</h3>
+    <p>Once your order is shipped, we will provide you with a tracking number. You can use this tracking number to track
+      the status of your delivery on our website.</p>
+    <h3>Returns and Refunds</h3>
+    <p>If you are not satisfied with your purchase, you can return the books within 30 days of delivery. Please refer to
+      our <a style="color:rgb(199, 24, 73);">Returns Policy</a> for more information on how to initiate a return and
+      request a refund.</p>
+    <br>
+  </div>
+  <div class="books-header">Contact Us</div>
+  <div class="info-section center" id="contacts">
+    <h4 style="color:rgb(199, 24, 73);">If you have any questions or inquiries, please feel free to reach out to us
+      using the contact details below:</h4>
+    <div class="contact-details">
+      <div class="contact-info">
+        <h3>Customer Support</h3>
+        <p>Email: no_support@gmail.com</p>
+      </div>
+      <div class="contact-info">
+        <h3>Sales Department</h3>
+        <p>Email: no_sales@gmail.com</p>
       </div>
     </div>
-    <div id="banner">
-      <div class="start-text">
-        <div class="start-head">
-          WHAT BOOK ARE YOU LOOKING FOR?
-        </div>
-        <div class="start-desq">
-          Not sure what to read next? Explore our catalog.
-        </div>
-        <a class="button-start" href="/catalog">Explore now</a>
+    <h4 style="color:rgb(199, 24, 73);">We look forward to hearing from you!</h4>
+  </div>
+  <div class="sep-footer"></div>
+  <footer>
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>About Us</h3>
+        <p>Welcome to I&#10084;BOOKS, your one-stop destination for all things books. We are passionate about literature
+          and dedicated to providing book lovers with an exceptional reading experience.</p>
+      </div>
+      <div class="footer-section">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="/catalog">Catalog</a></li>
+          <li><a href="#delivery">Delivery</a></li>
+          <li><a href="#contacts">Contacts</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h3>Contact Us</h3>
+        <p>Email: no_support@gmail.com</p>
+        <p>Email: no_sales@gmail.com</p>
       </div>
     </div>
-    <div class="start-books-recommend">
-      <div class="books-header">Trending books</div>
-      <div class="books-recommend-items">
-        <div class="book-item"></div>
-        <div class="book-item"></div>
-        <div class="book-item"></div>
-      </div>
-      <div class="rounds-slider-container">
-        <div class="round-slider"></div>
-        <div class="round-slider"></div>
-        <div class="round-slider"></div>
-        <div class="round-slider"></div>
-      </div>
-      <a class="button-more" href="/catalog">See more</a>
+    <div class="footer-bottom">
+      <p>&copy; 2023 I&#10084;BOOKS. All rights reserved.</p>
     </div>
-    <div class="books-header">Delivery And Shipping</div>
-    <div class="info-section" id="delivery">
-      <h4 style="color:rgb(199, 24, 73);">We offer fast and reliable delivery services for all orders placed on our website.</h4>
-      <h3>Shipping Options</h3>
-      <ul>
-        <li><b>Standard Shipping:</b> Delivery within 5-7 business days.</li>
-        <li><b>Express Shipping:</b> Delivery within 2-3 business days. Additional charges apply.</li>
-        <li><b>International Shipping:</b> Delivery time varies based on the destination.</li>
-      </ul>
-      <h3>Shipping Rates</h3>
-      <p>Our shipping rates are based on the total weight of the books in your order and the selected shipping method. The exact shipping cost will be calculated during the checkout process.</p>
-      <h3>Tracking Your Order</h3>
-      <p>Once your order is shipped, we will provide you with a tracking number. You can use this tracking number to track the status of your delivery on our website.</p>
-      <h3>Returns and Refunds</h3>
-      <p>If you are not satisfied with your purchase, you can return the books within 30 days of delivery. Please refer to our <a style="color:rgb(199, 24, 73);">Returns Policy</a> for more information on how to initiate a return and request a refund.</p>
-      <br>
-    </div>
-    <div class="books-header">Contact Us</div>
-    <div class="info-section center" id="contacts">
-      <h4 style="color:rgb(199, 24, 73);">If you have any questions or inquiries, please feel free to reach out to us using the contact details below:</h4>
-      <div class="contact-details">
-        <div class="contact-info">
-          <h3>Customer Support</h3>
-          <p>Email: no_support@gmail.com</p>
-        </div>
-        <div class="contact-info">
-          <h3>Sales Department</h3>
-          <p>Email: no_sales@gmail.com</p>
-        </div>
-      </div>
-      <h4 style="color:rgb(199, 24, 73);">We look forward to hearing from you!</h4>
-    </div>
-    <div class="sep-footer"></div>
-    <footer>
-      <div class="footer-content">
-        <div class="footer-section">
-          <h3>About Us</h3>
-          <p>Welcome to I&#10084;BOOKS, your one-stop destination for all things books. We are passionate about literature and dedicated to providing book lovers with an exceptional reading experience.</p>
-        </div>
-        <div class="footer-section">
-          <h3>Quick Links</h3>
-          <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="/catalog">Catalog</a></li>
-            <li><a href="#delivery">Delivery</a></li>
-            <li><a href="#contacts">Contacts</a></li>
-          </ul>
-        </div>
-        <div class="footer-section">
-          <h3>Contact Us</h3>
-          <p>Email: no_support@gmail.com</p>
-          <p>Email: no_sales@gmail.com</p>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <p>&copy; 2023 I&#10084;BOOKS. All rights reserved.</p>
-      </div>
-    </footer>
+  </footer>
   </body>
   <script src="../js/search-engine.js"></script>
   <script src="../js/home-page.js"></script>
+
 </html>
