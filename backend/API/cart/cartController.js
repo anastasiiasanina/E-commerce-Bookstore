@@ -1,6 +1,6 @@
 'use strict';
 
-const cartHelper = require('./cartHelper');
+const cartHelper = require('../../helpers/cartHelper');
 const {
   CART_CREATE_MESSAGE,
   CART_REMOVE_MESSAGE,
