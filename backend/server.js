@@ -12,13 +12,13 @@ const pageRouter = require('./pageRouter');
 const authRouter = require('./API/auth/authRouter');
 const booksRouter = require('./API/books/booksRouter');
 const authorsRouter = require('./API/authors/authorsRouter');
-const genresRouter = require('./API/genres/genresRouter')
+const genresRouter = require('./API/genres/genresRouter');
 const emailRouter = require('./API/email/emailRouter');
 const cartRouter = require('./API/cart/cartRouter');
 
 app.use(bodyParser.json());
 app.use(cookieParser());
-app.use(cors())
+app.use(cors());
 app.use(express.json());
 app.use(express.static(path.join(__dirname, '../frontend')));
 app.use('/', pageRouter);
