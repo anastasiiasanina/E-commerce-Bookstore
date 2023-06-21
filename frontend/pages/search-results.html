@@ -1,68 +1,68 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>Catalog</title>
-    <link rel="stylesheet" href='/css/home.css'>
-    <link rel="stylesheet" href='/css/catalog.css'>
-    <link rel="stylesheet" href='/css/search.css'>
-    <link rel="icon" href="https://img.icons8.com/ios-filled/50/love-circled.png"" />
+<head>
+  <meta charset="utf-8">
+  <title>Catalog</title>
+  <link rel="stylesheet" href='/css/home.css'>
+  <link rel="stylesheet" href='/css/catalog.css'>
+  <link rel="stylesheet" href='/css/search.css'>
+  <link rel="icon" href="https://img.icons8.com/ios-filled/50/love-circled.png"" />
     <link href='https://unpkg.com/css.gg@2.0.0/icons/css/search.css' rel='stylesheet'>
     <link href='https://unpkg.com/css.gg@2.0.0/icons/css/profile.css' rel='stylesheet'>
     <link href='https://unpkg.com/css.gg@2.0.0/icons/css/shopping-bag.css' rel='stylesheet'>
   </head>
   <body>
-    <div class="menu-top">
-      <div class="menu-titles">
-        <a href="/home" class="menu-title">Home</a>
-        <a href="/catalog" class="menu-title">Catalog</a>
-        <a href="/home#delivery" class="menu-title">Delivery</a>
-        <a href="/home#contacts" class="menu-title">Contacts</a>
+    <div class=" menu-top">
+  <div class="menu-titles">
+    <a href="/home" class="menu-title">Home</a>
+    <a href="/catalog" class="menu-title">Catalog</a>
+    <a href="/home#delivery" class="menu-title">Delivery</a>
+    <a href="/home#contacts" class="menu-title">Contacts</a>
+  </div>
+  <div class="logo">I&#10084;BOOKS</div>
+  <div class="menu-icons">
+    <input id="searchbar" class="form-control" placeholder="Search books here..." type="text"></input>
+    <i id="search" class="menu-icon gg-search"></i>
+    <i class="menu-icon gg-profile"></i>
+    <i class="menu-icon gg-shopping-bag"></i>
+  </div>
+  </div>
+  <div class="title-res">Search results for "<span id="input"></span>"</div>
+  <div class="books_list" data-books-list-container></div>
+  <template books-list-template>
+    <div class="card">
+      <div class="header-name-book" data-name-book></div>
+      <div class="header-name-book" data-author-book></div>
+      <div class="header-price-book" data-price-book></div>
+    </div>
+  </template>
+  <div class="sep-footer"></div>
+  <footer>
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>About Us</h3>
+        <p>Welcome to I&#10084;BOOKS, your one-stop destination for all things books. We are passionate about literature
+          and dedicated to providing book lovers with an exceptional reading experience.</p>
       </div>
-      <div class="logo">I&#10084;BOOKS</div>
-      <div class="menu-icons">
-        <input id="searchbar" class="form-control" placeholder="Search books here..." type="text"></input>
-        <i id="search" class="menu-icon gg-search"></i>
-        <i class="menu-icon gg-profile"></i>
-        <i class="menu-icon gg-shopping-bag"></i>
+      <div class="footer-section">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="/home">Home</a></li>
+          <li><a href="/catalog">Catalog</a></li>
+          <li><a href="/home#delivery">Delivery</a></li>
+          <li><a href="/home#contacts">Contacts</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h3>Contact Us</h3>
+        <p>Email: no_support@gmail.com</p>
+        <p>Email: no_sales@gmail.com</p>
       </div>
     </div>
-    <div class="title-res">Search results for "<span id="input"></span>"</div>
-    <div class="books_list" data-books-list-container></div>
-    <template books-list-template>
-      <div class="card">
-        <div class="header-name-book" data-name-book></div>
-        <div class="header-name-book" data-author-book></div>
-        <div class="header-price-book" data-price-book></div>
-      </div>
-    </template>
-    <div class="sep-footer"></div>
-    <footer>
-      <div class="footer-content">
-        <div class="footer-section">
-          <h3>About Us</h3>
-          <p>Welcome to I&#10084;BOOKS, your one-stop destination for all things books. We are passionate about literature and dedicated to providing book lovers with an exceptional reading experience.</p>
-        </div>
-        <div class="footer-section">
-          <h3>Quick Links</h3>
-          <ul>
-            <li><a href="/home">Home</a></li>
-            <li><a href="/catalog">Catalog</a></li>
-            <li><a href="/home#delivery">Delivery</a></li>
-            <li><a href="/home#contacts">Contacts</a></li>
-          </ul>
-        </div>
-        <div class="footer-section">
-          <h3>Contact Us</h3>
-          <p>Email: no_support@gmail.com</p>
-          <p>Email: no_sales@gmail.com</p>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <p>&copy; 2023 I&#10084;BOOKS. All rights reserved.</p>
-      </div>
-    </footer>
+    <div class="footer-bottom">
+      <p>&copy; 2023 I&#10084;BOOKS. All rights reserved.</p>
+    </div>
+  </footer>
   </body>
   <script src="../js/search-page.js"></script>
 </html>
-
