@@ -55,9 +55,9 @@ const getAllUsers = (req, res) => {
 
 const getUser = (req, res) => {
   try {
-    const sql = `SELECT * FROM users WHERE id = ${req.params.id}`;
+    const sql = 'SELECT * FROM users WHERE id = ?';
 
-    db.each(sql, [], (err, row) => {
+    db.each(sql, [req.params.id], (err, row) => {
       if (err) res.status(300).json({ message: 'Error found' });
       res.status(200).json(row);
     });
@@ -68,9 +68,9 @@ const getUser = (req, res) => {
 
 const deleteUser = (req, res) => {
   try {
-    const sql = `DELETE FROM users WHERE id = ${req.params.id}`;
+    const sql = 'DELETE FROM users WHERE id = ?';
 
-    db.run(sql, [], (err, row) => {
+    db.run(sql, [req.params.id], (err, row) => {
       if (err) { res.status(300).json({ message: 'Error' }); console.log(err); }
       res.status(200).json({ message: 'Deleted' });
     });

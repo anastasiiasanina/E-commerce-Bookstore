@@ -39,9 +39,9 @@ const getAllGenres = (req, res) => {
 
 const getGenre = (req, res) => {
   try {
-    const sql = `SELECT * FROM genres WHERE id = ${req.params.id}`;
+    const sql = 'SELECT * FROM genres WHERE id = ?';
 
-    db.each(sql, [], (err, row) => {
+    db.each(sql, [req.params.id], (err, row) => {
       if (err) res.status(300).json({ message: 'Error found' });
       res.status(200).json(row);
     });
@@ -52,9 +52,9 @@ const getGenre = (req, res) => {
 
 const deleteGenre = (req, res) => {
   try {
-    const sql = `DELETE FROM genres WHERE id = ${req.params.id}`;
+    const sql = 'DELETE FROM genres WHERE id = ?';
 
-    db.run(sql, [], (err, row) => {
+    db.run(sql, [req.params.id], (err, row) => {
       if (err) res.status(300).json({ message: 'Error found' });
       res.status(200).json(row);
     });
