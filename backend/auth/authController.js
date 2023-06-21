@@ -9,15 +9,15 @@ let sql;
 const registration = (req, res) => {
   try {
     const {username, password} = req.body;
-    let isRegistered = validateUser(username, db);
-    console.log(isRegistered)
-    /*sql = "INSERT INTO users(username, password) VALUES (?,?)"
-    db.run(sql, [username, password], (err) => {
-      if(err) res.status(300).json({ message: 'Error found' });
-      console.log('success: ', username, password)
-    });
+    const hashPassword = bcrypt.hashSync(password, 7);
+    sql = "INSERT INTO users(username, password) VALUES (?,?)"
 
-    res.status(201).json("Created");*/
+    validateUser(res, username, db, () => {
+      db.run(sql, [username, hashPassword], (err) => {
+        if(err) res.status(300).json({ message: 'Error found' });
+        res.status(201).json("Created");
+      });
+    });
   } catch (error) {
     res.status(400).json({ message: 'Error found' });
   }
@@ -25,7 +25,9 @@ const registration = (req, res) => {
 
 const login = (req, res) => {
   try {
+    const {username, password} = req.body;
     
+    validateUser(res, username, db);
   } catch (error) {
     res.status(400).json({ message: 'Error found' });
   }

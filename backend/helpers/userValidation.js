@@ -1,10 +1,13 @@
-const validateUser = (username, db) => {
-  const sql = 'SELECT * ' + 'FROM users ' + `WHERE username = ${username}`;
+const validateUser = (res, username, db, insertUser) => {
+  const sql = 'SELECT * ' + 'FROM users ' + `WHERE username = ?`;
     
-  db.each(sql, [], (err, row) => {
-    if(err) console.log(err);
-    else if(row.length > 0 ) return true;
-    else return false;
+  db.all(sql, [username], (err, rows) => {
+    if(err) res.status(300).json({ message: 'Error found' });
+    if(rows.length < 1) {
+      insertUser();
+    } else if (rows.length >= 1) {
+      res.status(300).json({ message: 'User with this username exists' });
+    }
   });
 }
 
