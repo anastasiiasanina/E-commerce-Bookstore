@@ -24,6 +24,7 @@
     flex-direction: row;
     gap: 20px;
     margin: auto;
+    margin-left: 40px;
 }
 
 .card {

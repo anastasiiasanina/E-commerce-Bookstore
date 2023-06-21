@@ -32,6 +32,9 @@ body {
 .menu-title:hover {
   color: rgb(199, 24, 73);
 }
+.menu-icon {
+  color: black;
+}
 .menu-icons{
   display: flex;
   flex-wrap: wrap;
@@ -40,6 +43,7 @@ body {
   margin-right: 60px;
   margin-left: 60px;
   align-items: center;
+  cursor: pointer;
 }
 .menu-icon:hover {
   color: rgb(199, 24, 73);
@@ -58,7 +62,10 @@ body {
   border-color:rgb(90, 89, 89);
   padding: 5px 1px 5px 1px;
 }
-.photo-banner{
+#banner{
+  background-image:
+  linear-gradient(to left, rgba(243, 243, 243, 0.09), #b9d9e1, #afdbe6),
+  url('../img/books-banner1.jpg');
   position: relative;
   text-align: left;
   width: 100%;
@@ -73,7 +80,7 @@ body {
 .start-head{
   font-size: 70px;
   font-weight: bold;
-  color: white;
+  color: rgb(0, 0, 0);
   width: 60%;
 }
 .start-desq{
@@ -187,6 +194,35 @@ body {
   border-radius: 10px;
 }
 
+.sign{
+  text-align: center;
+  margin: auto;
+  margin-top: 15px;
+  width: 40%;
+  padding: 30px 60px 30px 60px;
+  background-color: rgb(211, 211, 211);
+  border-radius: 10px;
+}
+
+.button-sign {
+  display: flex;
+  flex-wrap: wrap;
+  text-align: center;
+  text-decoration: none;
+  align-items: center;
+  cursor: pointer;
+  justify-content: center;
+  border-radius: 30px;
+  width: 180px;
+  height: 60px;
+  border-color: black;
+  border-width: 2px;
+  border-style: solid;
+  color: black;
+  font-weight: bold;
+  font-size: 20px;
+  transition: 0.3s;
+}
 .center {
   text-align: center;
 }
