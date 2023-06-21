@@ -17,10 +17,6 @@ const bookListTemplate = document.querySelector("[books-list-template]");
 const bookListContainer = document.querySelector("[data-books-list-container]");
 const mainTitle = document.querySelector("[changing-title]");
 
-const searchInput = document.querySelector(".searchInput");
-const resultBox = document.querySelector(".resultBox");
-const inputField = document.querySelector("#searchbar");
-
 //chosen filter options
 const filters = {
   genres: [],

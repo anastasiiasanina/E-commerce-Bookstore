@@ -17,7 +17,7 @@ body {
     width: 50%;
     height: 100vh;
     /* background-color:brown; */
-    background-image: url('/css/backkk.jpg');
+    background-image: url('../img/auth-bg.jpg');
     background-size: cover;
     background-position: center;
 } 

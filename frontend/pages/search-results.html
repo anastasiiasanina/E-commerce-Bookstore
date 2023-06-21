@@ -21,7 +21,13 @@
   </div>
   <div class="logo">I&#10084;BOOKS</div>
   <div class="menu-icons">
-    <input id="searchbar" class="form-control" placeholder="Search books here..." type="text"></input>
+    <div class="searchBox">
+      <div class="row">
+        <input id="searchbar" class="form-control" placeholder="Search books here..." type="text" data-search
+          autocomplete="off"></input>
+      </div>
+      <div id="resultsBox" class="resultBox"></div>
+    </div>
     <i id="search" class="menu-icon gg-search"></i>
     <i class="menu-icon gg-profile"></i>
     <i class="menu-icon gg-shopping-bag"></i>
@@ -64,6 +70,7 @@
     </div>
   </footer>
   </body>
-  <script src="../js/search-engine.js"></script>
+  <script src="../js/helpers/search-engine.js"></script>
   <script src="../js/search-page.js"></script>
+  <script src="../js/helpers/autocompliteInput.js"></script>
 </html>

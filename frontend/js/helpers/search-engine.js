@@ -1,7 +1,6 @@
 const inputField = document.querySelector('#searchbar');
 const searchButton = document.querySelector('#search');
 
-
 const handleSearchClick = (e) => {
   const input = inputField.value;
   if (input == '') {
