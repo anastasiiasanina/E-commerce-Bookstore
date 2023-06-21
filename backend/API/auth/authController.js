@@ -18,14 +18,14 @@ const registration = (req, res) => {
     const hashPassword = bcrypt.hashSync(password, 7);
     sql = 'INSERT INTO users(username, password) VALUES (?,?)';
 
-    validateUser(res, username, db, () => {
+    validateUser(res, username, password, db, 'signup', () => {
       db.run(sql, [username, hashPassword], (err) => {
         if (err) res.status(300).json({ message: 'Error found' });
         res.status(201).json('Created');
       });
     });
   } catch (error) {
-    res.status(400).json({ message: 'Error found' });
+    res.status(300).json({ message: 'Error found' });
   }
 };
 
@@ -33,7 +33,15 @@ const login = (req, res) => {
   try {
     const { username, password } = req.body;
 
-    validateUser(res, username, db);
+    validateUser(res, username, password, db, 'signin', (password, rows) => {
+      const userPassword = bcrypt.compareSync(password, rows[0].password);
+        
+      if (userPassword) {
+        return res.status(400).json({ message: 'Correct Password' });
+      } else {
+        return res.status(400).json({ message: 'Incorrect password' });
+      }
+    });
   } catch (error) {
     res.status(400).json({ message: 'Error found' });
   }
