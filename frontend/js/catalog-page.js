@@ -116,32 +116,27 @@ const displayCard = (bookInfo) => {
 const displayCategories = (arrayOfBooks) => {
   const genresContainer = document.querySelector('.categories-text');
   const authorsContainer = document.querySelector('.authors-list');
-  for (const book of arrayOfBooks) {
-      const genre = document.createElement('div');
-      genre.classList.add('title');
-      genre.textContent = book.genre;
-      genresContainer.appendChild(genre);
+  let authors = [];
+  let genres = [];
 
-      const author = document.createElement('li');
-      author.classList.add('author');
-      author.textContent = book.author;
-      authorsContainer.appendChild(author);
+  for (const book of arrayOfBooks) {
+      if (!authors.includes(book.author)) {
+        authors.push(book.author);
+        const author = document.createElement('li');
+        author.classList.add('author');
+        author.textContent = book.author;
+        authorsContainer.appendChild(author);
+      }
+      
+      if (!genres.includes(book.genre)) {
+        genres.push(book.genre);
+        const genre = document.createElement('div');
+        genre.classList.add('title');
+        genre.textContent = book.genre;
+        genresContainer.appendChild(genre);
+      }
   }
 }
-
-//event handlers for clicks on categories
-const handleGenresTitleClick = (e) => {
-  handleClick(e, filters.genres);
-};
-
-const handleAuthorsTitleClick = (e) => {
-  handleClick(e, filters.authors);
-};
-
-const handleFilterButtonClick = (e) => {
-  filterBooks(e, allBooks);
-};
-
 
 document.addEventListener('DOMContentLoaded', async () => {
   try {
@@ -152,19 +147,20 @@ document.addEventListener('DOMContentLoaded', async () => {
       displayCard(book);
     }
 
+    //event handlers for clicks on categories
     for (const title of titlesOfGenres) {
-      title.addEventListener("click", handleGenresTitleClick);
+      title.addEventListener("click", (e) => handleClick(e, filters.genres));
     }
 
     for (const title of titlesOfAuthors) {
-      title.addEventListener("click", handleAuthorsTitleClick);
+      title.addEventListener("click", (e) => handleClick(e, filters.authors));
     }
 
     for (const input of rangeInput) {
       input.addEventListener("input", handlePriceSlider);
     }
 
-    filterBtn.addEventListener('click', handleFilterButtonClick);
+    filterBtn.addEventListener('click', (e) => filterBooks(e, allBooks));
   } catch (error) {
     console.log('Error occurred:', error);
   }
