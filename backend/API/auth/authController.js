@@ -7,7 +7,7 @@ const db = new sqlite.Database(
   './db/users.db',
   sqlite.OPEN_READWRITE,
   (err) => {
-    if (err) console.log(err);
+    if (err) console.error(err);
   }
 );
 let sql;
@@ -71,7 +71,10 @@ const deleteUser = (req, res) => {
     const sql = 'DELETE FROM users WHERE id = ?';
 
     db.run(sql, [req.params.id], (err, row) => {
-      if (err) { res.status(300).json({ message: 'Error' }); console.log(err); }
+      if (err) {
+        res.status(300).json({ message: 'Error' });
+        console.error(err);
+      }
       res.status(200).json({ message: 'Deleted' });
     });
   } catch (error) {

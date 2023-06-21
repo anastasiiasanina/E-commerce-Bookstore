@@ -4,7 +4,7 @@ const sqlite = require('sqlite3').verbose();
 const db = new sqlite.Database(
   './db/books.db',
   sqlite.OPEN_READWRITE, (err) => {
-    if (err) console.log(err);
+    if (err) console.error(err);
   });
 let sql;
 
@@ -15,7 +15,6 @@ const addBook = (req, res) => {
       ' VALUES (?,?,?,?,?,?)';
     db.run(sql, [name, price, description, genre, author, amount], (err) => {
       if (err) res.status(300).json({ message: 'Error found' });
-      console.log('success: ', name, price, description, genre, author, amount);
     });
 
     res.status(201).json('Created');

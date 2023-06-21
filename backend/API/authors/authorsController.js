@@ -5,7 +5,7 @@ const db = new sqlite.Database(
   './db/authors.db',
   sqlite.OPEN_READWRITE,
   (err) => {
-    if (err) console.log(err);
+    if (err) console.error(err);
   }
 );
 let sql;
@@ -16,7 +16,6 @@ const addAuthor = (req, res) => {
     sql = 'INSERT INTO authors(name) VALUES (?)';
     db.run(sql, [name], (err) => {
       if (err) res.status(300).json({ message: 'Error found' });
-      console.log('success: ', name);
     });
 
     res.status(201).json('Created');

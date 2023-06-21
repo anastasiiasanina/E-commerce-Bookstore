@@ -37,7 +37,7 @@ const getBooksFromBD = async () => {
     }
     return arrayOfBooks;
   } catch (e) {
-    console.log('Error occured:', e);
+    console.error('Error occured:', e);
   }
 }
 
@@ -164,6 +164,6 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     filterBtn.addEventListener('click', (e) => filterBooks(e, allBooks));
   } catch (error) {
-    console.log('Error occurred:', error);
+    console.error('Error occurred:', error);
   }
 });

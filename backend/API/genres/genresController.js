@@ -4,7 +4,7 @@ const sqlite = require('sqlite3').verbose();
 const db = new sqlite.Database(
   './db/genres.db',
   sqlite.OPEN_READWRITE, (err) => {
-    if (err) console.log(err);
+    if (err) console.error(err);
   });
 let sql;
 
@@ -14,7 +14,6 @@ const addGenre = (req, res) => {
     sql = 'INSERT INTO books(name) VALUES (?)';
     db.run(sql, [name], (err) => {
       if (err) res.status(300).json({ message: 'Error found' });
-      console.log('success: ', name);
     });
 
     res.status(201).json('Created');
