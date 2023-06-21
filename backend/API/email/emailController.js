@@ -17,9 +17,10 @@ const sendEmailEndpoint = (req, res) => {
   gmailApi.sendEmail(from, to, subject, sentContent)
     .then((result) => {
       const { status, statusText } = result;
-      res.send({ status, statusText });
+      res.status(200).json({ status, statusText });
     })
     .catch((error) => {
+      res.status(500);
       console.error(error);
     });
 };

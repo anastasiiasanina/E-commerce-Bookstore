@@ -5,7 +5,7 @@ const cookieSettings = {
   httpOnly: true,
 };
 
-const { CART_COOKIE_NAME } = require('./cartResources');
+const { CART_COOKIE_NAME } = require('../API/cart/cartResources');
 
 const createCart = (callback) => {
   const data = '[]';

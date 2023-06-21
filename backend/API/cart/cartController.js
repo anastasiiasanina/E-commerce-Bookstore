@@ -1,6 +1,6 @@
 'use strict';
 
-const cartHelper = require('./cartHelper');
+const cartHelper = require('../../helpers/cartHelper');
 const {
   CART_CREATE_MESSAGE,
   CART_REMOVE_MESSAGE,
@@ -12,7 +12,7 @@ const {
 const createCart = (req, res) => {
   cartHelper.createCart(res.cookie);
 
-  res.send({
+  res.status(201).json({
     status: STATUS_OK,
     message: CART_CREATE_MESSAGE
   });
@@ -21,7 +21,7 @@ const createCart = (req, res) => {
 const removeCart = (req, res) => {
   cartHelper.removeCart(res.clearCookie);
 
-  res.send({
+  res.status(200).json({
     status: STATUS_OK,
     message: CART_REMOVE_MESSAGE
   });
@@ -42,7 +42,7 @@ const addToCart = (req, res) => {
     cartHelper.addToCart(res.cookie, req.cookies, { productId, quantity });
   }
 
-  res.send(responseObject);
+  res.status(200).json(responseObject);
 };
 
 const removeFromCart = (req, res) => {
@@ -50,7 +50,7 @@ const removeFromCart = (req, res) => {
 
   cartHelper.removeFromCart(res.cookie, req.cookies, productId);
 
-  res.send({
+  res.status(200).json({
     status: STATUS_OK,
     message: REMOVED_FROM_CART_MESSAGE
   });
