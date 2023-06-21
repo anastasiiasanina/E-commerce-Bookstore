@@ -24,8 +24,6 @@ const composeMessage = (from, to, subject, content) => {
 
   const message = messageParts.join('\n') + content;
 
-  console.log(message);
-
   // The body needs to be base64url encoded
   const encodedMessage = Buffer.from(message)
     .toString('base64')
