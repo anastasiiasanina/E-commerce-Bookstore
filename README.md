@@ -1,7 +1,7 @@
 # I&#10084;BOOKS - ONLINE BOOKSTORE
 Our online bookstore project is a web application that allows users to browse and purchase books online. 
 <br/>
-***It was created by our team - Anastasiia Sanina, Liubov Reckechinska, Yulia Lehenka and Maryna Vasylyeva.***
+***It was created by our team - Anastasiia Sanina, Liubov Reckechinska, Yulia Lehenka and Maryna Vasylieva.***
 
 
 # Preview
