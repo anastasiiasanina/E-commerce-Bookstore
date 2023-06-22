@@ -1,5 +1,7 @@
 "use strict";
 
+const resultBox = document.querySelector(".resultBox");
+
 const inputSearchModule = (function () {
   // const arrKeywords = [
   //   "The Adventures of Sherlock Holmes",

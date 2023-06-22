@@ -1,14 +1,28 @@
 const signinForm = document.getElementById('signin-form');
 
-signinForm.addEventListener('submit', (e) => {
+signinForm.addEventListener('submit', async (e) => {
   e.preventDefault(); 
 
   const username = document.getElementById('username').value;
   const password = document.getElementById('password').value;
 
-  if (username === 'admin' && password === 'admin123') {
-    showMessage('success', 'Signed in successfully!');
-  } else {
+  const options = {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      username,
+      password
+    })
+  };
+
+  const { message } = await fetch('/api/v1/users/login', options)
+    .then(res => res.json());
+  
+  if (message == 'Correct Password') {
+    document.location = `./home`;
+  } else if (message == 'Incorrect password' || 'User does not exist') {
     showMessage('error', 'Wrong password or name!');
   }
 });
