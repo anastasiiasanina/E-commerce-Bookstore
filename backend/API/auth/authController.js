@@ -21,7 +21,7 @@ const registration = (req, res) => {
     validateUser(res, username, password, db, 'signup', () => {
       db.run(sql, [username, hashPassword], (err) => {
         if (err) res.status(300).json({ message: 'Error found' });
-        res.status(201).json({message: 'Created'});
+        res.status(201).json({ message: 'Created' });
       });
     });
   } catch (error) {
@@ -35,7 +35,7 @@ const login = (req, res) => {
 
     validateUser(res, username, password, db, 'signin', (password, rows) => {
       const userPassword = bcrypt.compareSync(password, rows[0].password);
-        
+
       if (userPassword) {
         return res.status(400).json({ message: 'Correct Password' });
       } else {
