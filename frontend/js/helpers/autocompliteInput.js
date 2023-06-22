@@ -3,25 +3,21 @@
 const resultBox = document.querySelector(".resultBox");
 
 const inputSearchModule = (function () {
-  // const arrKeywords = [
-  //   "The Adventures of Sherlock Holmes",
-  //   "It Ends With Us",
-  //   "Goblet of Fire",
-  //   "The Picture of Dorian Gray",
-  // ];
-  let arrKeywords = [];
-
   const getBooksFromAPI = async () => {
     try {
       const response = await fetch("http://localhost:8000/api/v1/books");
       const data = await response.json();
-      arrKeywords = data.map((book) => book.title);
+      let names = [];
+      for (const book of data) {
+        names.push(book.name);
+      }
+      return names;
     } catch (error) {
       console.error("Error occurred:", error);
     }
   };
 
-  const handleInput = () => {
+  const handleInput = (arrKeywords) => {
     const inputedSearch = inputField.value;
     const searchResult = arrKeywords.filter((keyword) => {
       return keyword.toLowerCase().includes(inputedSearch.toLowerCase());
@@ -67,8 +63,8 @@ const inputSearchModule = (function () {
   };
 
   const initialize = async () => {
-    await getBooksFromAPI();
-    inputField.addEventListener("input", handleInput);
+    const arrKeywords = await getBooksFromAPI();
+    inputField.addEventListener("input", () => handleInput(arrKeywords));
     document.addEventListener("click", handleDocumentClick);
   };
 
