@@ -42,9 +42,16 @@
 }
 
 .header-name-book {
-    font-size: large;
+    font-size: 18px;
+    margin-left: -20px;
+    margin-right: -20px;
     text-align: center;
-   
+    font-weight: bold;
+}
+
+.header-name-book p{
+    text-align: center;
+    font-weight: bold;
 }
 
 .card:hover {
@@ -62,3 +69,10 @@
     color: #777;
 }
 
+#book-cover{
+    width: 150px;
+    height: 180px;
+    background-image: url('../img/book.jpg');
+    background-size: cover;
+    background-position: center;
+} 

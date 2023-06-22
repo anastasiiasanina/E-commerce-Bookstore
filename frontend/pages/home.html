@@ -5,6 +5,8 @@
   <meta charset="utf-8">
   <title>Home</title>
   <link rel="stylesheet" href='/css/home.css'>
+  <link rel="stylesheet" href='/css/search.css'>
+  <link rel="stylesheet" href='/css/catalog.css'>
   <link rel="icon" href="https://img.icons8.com/ios-filled/50/love-circled.png"" />
     <link href='https://unpkg.com/css.gg@2.0.0/icons/css/search.css' rel='stylesheet'>
     <link href='https://unpkg.com/css.gg@2.0.0/icons/css/profile.css' rel='stylesheet'>
@@ -44,20 +46,20 @@
     </div>
   </div>
   <div class="start-books-recommend">
-    <div class="books-header">Trending books</div>
-    <div class="books-recommend-items">
-      <div class="book-item"></div>
-      <div class="book-item"></div>
-      <div class="book-item"></div>
-    </div>
-    <div class="rounds-slider-container">
-      <div class="round-slider"></div>
-      <div class="round-slider"></div>
-      <div class="round-slider"></div>
-      <div class="round-slider"></div>
-    </div>
+    <div class="books-header">Limited Books</div>
+    <div class="books_list" data-books-list-container></div>
+    <template books-list-template>
+      <div class="card">
+        <div id="book-cover"></div>
+        <div class="header-name-book" data-name-book></div>
+        <div class="header-author-book" data-author-book></div>
+        <div class="header-price-book" data-price-book></div>
+        <div class="header-amount-book" data-amount-book></div>
+      </div>
+    </template>
     <a class="button-more" href="/catalog">See more</a>
   </div>
+  <div class="sep-footer"></div>
   <div class="books-header">Delivery And Shipping</div>
   <div class="info-section" id="delivery">
     <h4 style="color:rgb(199, 24, 73);">We offer fast and reliable delivery services for all orders placed on our

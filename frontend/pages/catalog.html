@@ -53,21 +53,15 @@
         <span class="m-title">Max</span>
         <input type="number" class="input-max" value="800">
       </div>
-      <div class="slider">
-        <div class="progress"></div>
-      </div>
-      <div class="range-input">
-        <input type="range" class="range-min" min="100" max="1500" value="500" step="10">
-        <input type="range" class="range-max" min="100" max="1500" value="800" step="10">
-      </div>
-      <div class="find-btn">Find books</div>
     </div>
+    <div class="find-btn">Find books</div>
     <h3 class="books-header" changing-title>All books</h3>
     <div class="books_list" data-books-list-container></div>
     <template books-list-template>
       <div class="card">
+        <div id="book-cover"></div>
         <div class="header-name-book" data-name-book></div>
-        <div class="header-name-book" data-author-book></div>
+        <div class="header-author-book" data-author-book></div>
         <div class="header-price-book" data-price-book></div>
       </div>
     </template>

@@ -75,7 +75,7 @@
 .price-input .field {
     display: flex;
     padding: auto;
-    width: 110px;
+    width: 200px;
     height: 25px;
     align-items: center;
 }
@@ -100,62 +100,6 @@
     justify-content: center;
 }
 
-.slider {
-    margin-left: 60px;
-    margin-top: 20px;
-    width: 40%;
-    height: 5px;
-    position: relative;
-    background: #f4efca;
-    border-radius: 5px;
-}
-  
-.slider .progress {
-    left: 33%;
-    right: 47%;
-    margin-left: -30px;
-    margin-right: 30px;
-    height: 100%;
-    position: absolute;
-    border-radius: 5px;
-    background: rgb(199, 24, 73);
-}
-  
-.range-input {
-    margin-left: 60px;
-    position: relative;
-}
-
-.range-input input {
-    position: absolute;
-    width: 40%;
-    height: 5px;
-    top: -5px;
-    background: none;
-    pointer-events: none;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-  }
-  input[type="range"]::-webkit-slider-thumb { 
-    height: 17px;
-    width: 17px;
-    border-radius: 50%;
-    background: rgb(199, 24, 73);
-    pointer-events: auto;
-    -webkit-appearance: none;
-    box-shadow: 0 0 6px rgba(0, 0, 0, 0.05);
-  }
-  input[type="range"]::-moz-range-thumb {
-    height: 17px;
-    width: 17px;
-    border: none;
-    border-radius: 50%;
-    background: rgb(199, 24, 73);
-    pointer-events: auto;
-    -moz-appearance: none;
-    box-shadow: 0 0 6px rgba(0, 0, 0, 0.05);
-  }
-
 .find-btn {
     text-align: center;
     text-decoration: none;
@@ -178,6 +122,10 @@
 
 .header-price-book {
     color: green;
+}
+
+.header-amount-book {
+    color: red;
 }
 .searchBox{
     width: 320px;

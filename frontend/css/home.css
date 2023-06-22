@@ -122,6 +122,7 @@ body {
 .books-header{
   font-size: 45px;
   margin-top: 32px;
+  margin-bottom: 30px;
   font-weight: bold;
   text-align: center;
   align-items: center;
@@ -165,29 +166,16 @@ body {
   font-weight: bold;
   font-size: 24px;
   transition: 0.3s;
+  margin-top: 40px;
 }
 .button-more:hover{
   width: 220px;
   background-color: black;
   color: white;
 }
-.round-slider{
-  width: 14px;
-  height: 14px;
-  border-width: 2px;
-  border-color: black;
-  border-radius: 50%;
-  border-style: solid;
-  transition: 0.3s;
-  cursor: pointer;
-}
-.round-slider:hover{
-  background-color: black;
-}
 
 .info-section {
   margin: auto;
-  margin-top: 15px;
   width: 60%;
   padding: 0px 60px 0px 60px;
   background-color: rgb(211, 211, 211);
