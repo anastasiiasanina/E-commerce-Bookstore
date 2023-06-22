@@ -1,9 +1,7 @@
 "use strict";
 
-//elements of price slider
-const rangeInput = document.querySelectorAll(".range-input input");
+//elements of price input
 const priceInput = document.querySelectorAll(".price-input input");
-const range = document.querySelector(".slider .progress");
 
 //button 'find books'
 const filterBtn = document.querySelector(".find-btn");
@@ -21,7 +19,7 @@ const mainTitle = document.querySelector("[changing-title]");
 const filters = {
   genres: [],
   authors: [],
-  price: [],
+  priceRange: [],
 };
 
 const getBooksFromBD = async () => {
@@ -51,31 +49,11 @@ const handleClick = (e, arr) => {
   }
 };
 
-//event handler for price input
-const handlePriceSlider = (e) => {
-  let priceGap = 10;
-  let minVal = parseInt(rangeInput[0].value);
-  let maxVal = parseInt(rangeInput[1].value);
-
-  if (maxVal - minVal < priceGap) {
-    if (e.target.className === "range-min") {
-      rangeInput[0].value = maxVal - priceGap;
-    } else {
-      rangeInput[1].value = minVal + priceGap;
-    }
-  } else {
-    priceInput[0].value = minVal;
-    priceInput[1].value = maxVal;
-    range.style.left = (minVal / rangeInput[0].max) * 100 + "%";
-    range.style.right = 100 - (maxVal / rangeInput[1].max) * 100 + "%";
-  }
-};
-
 //getting filter values
 const getFilters = () => {
   let minPrice = priceInput[0].value;
   let maxPrice = priceInput[1].value;
-  filters.price = [minPrice, maxPrice];
+  filters.priceRange = [minPrice, maxPrice];
   mainTitle.textContent = "Found Books";
   return filters;
 };
@@ -83,9 +61,13 @@ const getFilters = () => {
 //filtering books
 const filterBooks = (e, arrayOfBooks) => {
   getFilters();
-  const { genres, authors, price } = filters;
+  const { genres, authors, priceRange } = filters;
   const filteredBooks = arrayOfBooks.filter((book) => {
-    return genres.includes(book.genre) && authors.includes(book.author);
+    const matchGenres = genres.length === 0 || genres.includes(book.genre);
+    const matchAuthors = authors.length === 0 || authors.includes(book.author);
+    const matchPriceRange = book.price >= priceRange[0] && book.price <= priceRange[1];
+
+    return matchGenres && matchAuthors && matchPriceRange;
   });
 
   while (bookListContainer.firstChild) {
@@ -105,7 +87,7 @@ const displayCard = (bookInfo) => {
   const bookPriceHeader = card.querySelector("[data-price-book]");
   bookNameHeader.textContent = bookInfo.name;
   bookAuthorHeader.textContent = bookInfo.author;
-  bookPriceHeader.textContent = bookInfo.price;
+  bookPriceHeader.textContent = bookInfo.price + " UAH";
   bookListContainer.append(card);
 };
 
@@ -151,10 +133,6 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     for (const title of titlesOfAuthors) {
       title.addEventListener("click", (e) => handleClick(e, filters.authors));
-    }
-
-    for (const input of rangeInput) {
-      input.addEventListener("input", handlePriceSlider);
     }
 
     filterBtn.addEventListener("click", (e) => filterBooks(e, allBooks));
