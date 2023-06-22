@@ -21,7 +21,7 @@ const registration = (req, res) => {
     validateUser(res, username, password, db, 'signup', () => {
       db.run(sql, [username, hashPassword], (err) => {
         if (err) res.status(300).json({ message: 'Error found' });
-        res.status(201).json('Created');
+        res.status(201).json({message: 'Created'});
       });
     });
   } catch (error) {

@@ -21,7 +21,7 @@ signupButton.addEventListener('click', async (e) => {
     .then(res => res.json());
   console.log(message)
   if (message == 'Created') {
-    document.location = `./home`;
+    document.location = `./signin`;
   } else if (message == 'User already exists') {
     alert('User already exists');
   }

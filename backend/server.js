@@ -15,6 +15,7 @@ const authorsRouter = require('./API/authors/authorsRouter');
 const genresRouter = require('./API/genres/genresRouter');
 const emailRouter = require('./API/email/emailRouter');
 const cartRouter = require('./API/cart/cartRouter');
+const ordersRouter = require('./API/orders/ordersRouter');
 
 app.use(bodyParser.json());
 app.use(cookieParser());
@@ -28,6 +29,7 @@ app.use('/', authorsRouter);
 app.use('/', genresRouter);
 app.use('/', emailRouter);
 app.use('/', cartRouter);
+app.use('/', ordersRouter);
 
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
