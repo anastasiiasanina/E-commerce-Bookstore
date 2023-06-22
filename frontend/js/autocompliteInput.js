@@ -1,12 +1,23 @@
 "use strict";
 
 const inputSearchModule = (function () {
-  const arrKeywords = [
-    "The Adventures of Sherlock Holmes",
-    "It Ends With Us",
-    "Goblet of Fire",
-    "The Picture of Dorian Gray",
-  ];
+  // const arrKeywords = [
+  //   "The Adventures of Sherlock Holmes",
+  //   "It Ends With Us",
+  //   "Goblet of Fire",
+  //   "The Picture of Dorian Gray",
+  // ];
+  let arrKeywords = [];
+
+  const getBooksFromAPI = async () => {
+    try {
+      const response = await fetch("http://localhost:8000/api/v1/books");
+      const data = await response.json();
+      arrKeywords = data.map((book) => book.title);
+    } catch (error) {
+      console.error("Error occurred:", error);
+    }
+  };
 
   const handleInput = () => {
     const inputedSearch = inputField.value;
@@ -53,7 +64,8 @@ const inputSearchModule = (function () {
     appendListItems(listItems);
   };
 
-  const initialize = () => {
+  const initialize = async () => {
+    await getBooksFromAPI();
     inputField.addEventListener("input", handleInput);
     document.addEventListener("click", handleDocumentClick);
   };
